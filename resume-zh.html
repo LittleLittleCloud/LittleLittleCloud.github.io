@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/resume.css">
+</head>
+<body>
+<div id="resume">
+<!-- The (first) h1 will be used as the <title> of the HTML page -->
+<h1>张晓云</h1>
+<!-- The unordered list immediately after the h1 will be formatted on a single
+line. It is intended to be used for contact details -->
+<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#50;&#50;&#54;&#48;&#53;&#55;&#56;&#51;&#53;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#103;&#50;&#50;&#54;&#48;&#53;&#55;&#56;&#51;&#53;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+<li>(778) 926 2901</li>
+<li>github: LittleLittleCloud</li>
+</ul>
+<!-- The paragraph after the h1 and ul and before the first h2 is optional. It
+is intended to be used for a short summary. -->
+<p>微软程序员，负责<a href="https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder">Model Builder</a>以及<a href="https://github.com/dotnet/machinelearning">ML.NET</a>的开发和维护，现居西雅图。</p>
+<h2>工作经历</h2>
+<!-- You have to wrap the "left" and "right" half of these headings in spans by
+hand -->
+<h3><span>SDE II, Microsoft Redmond</span> <span>Sep 2020 - 至今</span></h3>
+<h3><span>SDE I, Microsoft Vancouver</span> <span>Oct 2018 &ndash; Sep 2020</span></h3>
+<h4><a href="https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder">Model Builder</a></h4>
+<ul>
+<li>负责AutoML Service模块的维护和开发。AutoML Service会根据数据来自动搜索预设算法，例如LightGbm, Fast tree等，以及使用SMBO来优化预设算法的超参数。并根据训练结果返回最佳模型。</li>
+<li>负责Code Generator模块的维护和开发。Code Generator会根据AutoML Service的训练结果来生成最佳模型的pipeline以供用户进行微调。同时也会生成调用最佳模型的代码，以简化用户将模型整合进原工程的工作量。</li>
+</ul>
+<h4><a href="https://github.com/dotnet/machinelearning">ML.NET</a></h4>
+<ul>
+<li>负责维护<code>Microsoft.ML.AutoML</code>以及<code>Microsoft.ML.CodeGenerator</code>两个模块。</li>
+</ul>
+<h3><span>Intern, Microsoft SuZhou</span> <span>July 2017 &ndash; Oct 2017</span></h3>
+<ul>
+<li>负责开发用于Cortana智能音箱的log自动分析工具。</li>
+</ul>
+<h2>项目经历</h2>
+<h3><span><a href="https://github.com/LittleLittleCloud/auto-machinelearning">auto-machinelearning</a></span> <span>April 2020 - 至今</span></h3>
+<p><code>auto-machinelearning</code>是一个基于ML.NET的第三方库。它克服了<code>Microsoft.ML.AutoML</code>的缺点，将构建pipeline，构建超参搜索空间和选择优化算法的步骤解耦，从而允许用户自定义pipeline以及超参搜索空间，并利用预设的优化算法进行超参搜索。</p>
+<h3><span><a href="https://github.com/dotnet/AzCopyNet">AzCopyNet</a></span> <span>Oct 2020 - 至今</span></h3>
+<p><code>AzCopyNet</code>是一个轻量级的<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10">azcopy</a> wrapper library。由于采用了代码生成技术，百分之七十以上的代码是通过azcopy cli的文档自动生成的。因此它非常的可靠，易于使用。</p>
+<h2>教育经历</h2>
+<h3><span>西安交通大学 计算机科学与技术</span> <span>2014 &ndash; 2018</span></h3>
+<ul>
+<li>GPA 3.7</li>
+<li>获得2017年国家奖学金</li>
+</ul>
+<h2>技能</h2>
+<ul>
+<li>编程语言： C#, Python</li>
+</ul></div>
+</body>
+</html>
