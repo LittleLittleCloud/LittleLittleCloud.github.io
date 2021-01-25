@@ -4,8 +4,7 @@
 <!-- The unordered list immediately after the h1 will be formatted on a single
 line. It is intended to be used for contact details -->
 - <g2260578356@gmail.com>
-- (778) 926 2901
-- github: LittleLittleCloud
+- github: [LittleLittleCloud](https://github.com/LittleLittleCloud)
 
 <!-- The paragraph after the h1 and ul and before the first h2 is optional. It
 is intended to be used for a short summary. -->
