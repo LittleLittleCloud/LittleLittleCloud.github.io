@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: install python dependency
-        run: pip install markdown weasyprint
+        run: pip3 install markdown weasyprint
 
       # Runs a set of commands using the runners shell
       - name: build resume html
