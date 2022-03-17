@@ -8,34 +8,23 @@ line. It is intended to be used for contact details -->
 
 <!-- The paragraph after the h1 and ul and before the first h2 is optional. It
 is intended to be used for a short summary. -->
-微软程序员，负责[Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder)以及[ML.NET](https://github.com/dotnet/machinelearning)的开发和维护，现居西雅图。
 
 ## 工作经历
 
 <!-- You have to wrap the "left" and "right" half of these headings in spans by
 hand -->
-### <span>SDE II, Microsoft Redmond</span> <span>Sep 2020 - 至今</span>
-### <span>SDE I, Microsoft Vancouver</span> <span>Oct 2018 -- Sep 2020</span>
-
-#### [Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder)
-- 负责AutoML Service模块的维护和开发。AutoML Service会根据数据来自动搜索预设算法，例如LightGbm, Fast tree等，以及使用SMBO来优化预设算法的超参数。并根据训练结果返回最佳模型。
-- 负责Code Generator模块的维护和开发。Code Generator会根据AutoML Service的训练结果来生成最佳模型的pipeline以供用户进行微调。同时也会生成调用最佳模型的代码，以简化用户将模型整合进原工程的工作量。
-
-#### [ML.NET](https://github.com/dotnet/machinelearning)
-- 负责维护`Microsoft.ML.AutoML`以及`Microsoft.ML.CodeGenerator`两个模块。
-
-### <span>Intern, Microsoft SuZhou</span> <span>July 2017 -- Oct 2017</span>
-- 负责开发用于Cortana智能音箱的log自动分析工具。
+### <span>SDE II, Microsoft</span> <span>Sep 2020 - 至今</span>
+### <span>SDE I, Microsoft</span> <span>Oct 2018 -- Sep 2020</span>
 
 ## 项目经历
 
-### <span>[auto-machinelearning](https://github.com/LittleLittleCloud/auto-machinelearning)</span> <span>April 2020 - 至今</span>
+### [Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder)
+- Model Builder是一个面向ML.Net用户的Visual Studio插件。它采用了AutoML技术，极大的降低了.Net开发人员在他们的程序中使用机器学习的门槛。
+- 负责AutoML模块的维护和开发。包括但不局限于持续改进调优算法，加快搜索效率以及添加对新的机器学习任务的支持。（例如时序预测）
+- 负责Model Consuming模块的维护和开发。Model Consuming负责简化将模型整合进工程的过程，例如生成调用模型的代码片段，notebook乃至完整的工程（web api）
 
-`auto-machinelearning`是一个基于ML.NET的第三方库。它克服了`Microsoft.ML.AutoML`的缺点，将构建pipeline，构建超参搜索空间和选择优化算法的步骤解耦，从而允许用户自定义pipeline以及超参搜索空间，并利用预设的优化算法进行超参搜索。
-
-### <span>[AzCopyNet](https://github.com/dotnet/AzCopyNet)</span> <span>Oct 2020 - 至今</span>
-
-`AzCopyNet`是一个轻量级的[azcopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) wrapper library。由于采用了代码生成技术，百分之七十以上的代码是通过azcopy cli的文档自动生成的。因此它非常的可靠，易于使用。
+### [ML.NET](https://github.com/dotnet/machinelearning)
+- 负责维护和开发`Microsoft.ML.AutoML`, 一个框架内置的AutoML库。为.Net开发者提供一站式的AutoML解决方案
 
 ## 教育经历
 
@@ -46,4 +35,4 @@ hand -->
 
 ## 技能
 
- - 编程语言： C#, Python
+ - 编程语言： C#, Python，JS/TS
