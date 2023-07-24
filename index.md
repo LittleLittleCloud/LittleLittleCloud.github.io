@@ -7,5 +7,5 @@
 - [ML.Net AutoML.Net](https://github.com/dotnet/machinelearning). The most popular machine learning framework in dotnet. My major focus is on its AutoML component.
 
 # Personal project (for fun)
-- [Multi-Agent ChatUI](www.llmchat.me). Chat with your llm agents using multi-agent role-play algorithm
+- [Multi-Agent ChatUI](https://www.llmchat.me). Chat with your llm agents using multi-agent role-play algorithm
 - [US Visa appointment Tracker (Canada)](https://littlelittlecloud.github.io/us_visa_appointment_tracker/). Tracking available US visa appointment slot in Canada. 
