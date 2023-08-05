@@ -1,6 +1,7 @@
 # Xiaoyun Zhang（1996 - ）
 
-[中文简历（2018/10 - 2021/1)](resume-zh.html)
+[Resume (2018/10 - 2023/8)](resume-en.html)
+[简历（2018/10 - 2023/8）](resume-zh.html)
 
 # Main project that I work on (for bread)
 - [ML.Net Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder). A machine learning wizard in Visual Studio.
