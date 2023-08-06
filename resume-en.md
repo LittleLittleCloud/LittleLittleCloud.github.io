@@ -20,7 +20,7 @@ hand -->
 ## Projects
 ### [Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder)
 - Model Builder is a Visual Studio extension for dotnet developers. It is a UI wizard which help developers easily integrate ML.Net algorithms into their applications.
-- Responsible for the maintenance and development of the UI frontend. Including but not limited to continuous improvement of tuning algorithms, speeding up search efficiency.
+- Responsible for the maintenance and development of the UI frontend. Including but not limited to improve accessibility, adding more scenarios, and improving the user experience.
 
 ### [AzCopy.Net](https://github.com/dotnet/AzCopyNet)
 - Dotnet wrapper library for AzCopy, a command line tool for copying data to and from Microsoft Azure Blob, File, and Table storage.
