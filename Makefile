@@ -1,6 +1,6 @@
 .PHONY: resume watch clean
 
-resume: resume-zh.html resume-en.html
+resume: resume-en.html resume-zh.html
 
 watch:
 	ls *.md *.css | entr make resume-zh
