@@ -1,4 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { useState } from "react";
+import { getPersonalInformation, PersonalInformation } from ".";
+const personalInformation = getPersonalInformation();
 
 export default function Document() {
   return (

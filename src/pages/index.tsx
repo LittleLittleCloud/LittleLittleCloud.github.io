@@ -1,5 +1,11 @@
 import Image from "next/image";
 import localFont from "next/font/local";
+import Head from "next/head";
+import Navbar from "@/components/nav-bar";
+import About from "@/components/about";
+import Experience from "@/components/experience";
+import EducationSection from "@/components/education";
+import ProjectSection from "@/components/project";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,103 +18,111 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function Home() {
-  return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+export type ProjectMetadata = {
+  name: string;
+  description: string;
+  url: string;
+};
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+export type Education = {
+  school: string;
+  degree: string;
+  major: string;
+  graduation: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+};
+
+export type WorkExperience = {
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+};
+
+export type SocialInformation = {
+  github: string;
+  linkedin: string;
+  twitter: string;
+  email: string;
+};
+
+export type PersonalInformation = {
+  name: string;
+  title: string;
+  description: string;
+  socials: SocialInformation;
+  projects: ProjectMetadata[];
+  education: Education[];
+  workExperience: WorkExperience[];
+};
+
+export const getPersonalInformation = () => {
+  return {
+    name: "XiaoYun Zhang",
+    title: "Web Developer | Tech Enthusiast | Coffee Lover",
+    description:
+      "Welcome to my personal website. I'm a software developer and cat lover",
+    socials: {
+      github: "JohnDoe",
+      linkedin: "JohnDoe",
+      twitter: "JohnDoe",
+      email: "JohnDoe@gmail.com",
+    },
+    projects: [
+      {
+        name: "Project 1",
+        description: "This is a description for Project 1.",
+        url: "#",
+      },
+      {
+        name: "Project 2",
+        description: "This is a description for Project 2.",
+        url: "#",
+      },
+    ],
+    education: [
+      {
+        school: "University of Example",
+        degree: "Bachelor of Science",
+        major: "Computer Science",
+        graduation: "May 2023",
+      },
+    ],
+    workExperience: [
+      {
+        company: "Example Company",
+        position: "Software Engineer",
+        startDate: "May 2023",
+        endDate: "Present",
+        description:
+          "This is a description for my work experience at Example Company.",
+      },
+    ],
+  } as PersonalInformation;
+};
+
+export default function Home() {
+  const personalInformation = getPersonalInformation();
+
+  return (
+    <div className="min-h-screen">
+      <main className="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
+        <Navbar {...personalInformation} />
+        <About {...personalInformation} />
+        <ProjectSection {...personalInformation} />
+        <Experience {...personalInformation} />
+        <EducationSection {...personalInformation} />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="hadow mt-8">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-gray-500">
+            © 2024 John Doe. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   );
