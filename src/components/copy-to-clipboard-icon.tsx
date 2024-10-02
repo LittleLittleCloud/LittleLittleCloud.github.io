@@ -10,7 +10,7 @@ export const CopyToClipboardIcon: FC<CopyToClipboardIconProps> = ({
 	textValue,
 	size = 18,
 }) => {
-	const [isCopied, setIsCopied] = useState<Boolean>(false);
+	const [isCopied, setIsCopied] = useState<boolean>(false);
 	const [valueToCopy, setValueToCopy] = useState<string>("");
 
 	useEffect(() => {

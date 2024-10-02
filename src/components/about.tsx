@@ -11,13 +11,12 @@ const About: React.FC<AboutProps> = ({ name, description, socials, profile }) =>
 
   useEffect(() => {
     console.log("About component mounted");
-    console.log("Description: ", description);
   }, []);
   return (
     <div id="about" className="max-w-4xl pt-16 mx-auto p-6 ">
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="flex-shrink-0">
-          <div className="relative w-64 h-80">
+      <div className="w-full flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col w-64">
+          <div className="relative h-80">
             <Image
               src={profile}
               alt="Me at Giza Pyramid"
@@ -26,7 +25,7 @@ const About: React.FC<AboutProps> = ({ name, description, socials, profile }) =>
               className="rounded-lg"
             />
           </div>
-          <div className="my-12 flex items-center gap-5">
+          <div className="my-12 flex justify-center gap-8">
             <Link
               href={socials.github}
               target='_blank'
@@ -55,7 +54,6 @@ const About: React.FC<AboutProps> = ({ name, description, socials, profile }) =>
             >
               <Mail size={30} />
             </Link>
-
           </div>
         </div>
 

@@ -54,8 +54,8 @@ interface Props {
 }
 
 export const CodeBlock: FC<Props> = memo(({ language, value }) => {
-	const [isCopied, setIsCopied] = useState<Boolean>(false);
-	const [mounted, setMounted] = useState<Boolean>(false);
+	const [isCopied, setIsCopied] = useState<boolean>(false);
+	const [mounted, setMounted] = useState<boolean>(false);
 	const { theme, setTheme } = useTheme();
 
 	useEffect(() => {
