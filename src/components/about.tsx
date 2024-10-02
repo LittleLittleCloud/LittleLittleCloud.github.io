@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { PersonalInformation } from "@/pages";
 import Link from "next/link";
 import { GithubIcon, Linkedin, Mail, Twitter } from "lucide-react";
+import { Markdown } from "./markdown";
 
 export interface AboutProps extends PersonalInformation {}
 
-const About: React.FC<AboutProps> = ({ name, description, socials }) => {
+const About: React.FC<AboutProps> = ({ name, description, socials, profile }) => {
+
+  useEffect(() => {
+    console.log("About component mounted");
+    console.log("Description: ", description);
+  }, []);
   return (
     <div id="about" className="max-w-4xl pt-16 mx-auto p-6 ">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="flex-shrink-0">
           <div className="relative w-64 h-80">
             <Image
-              src="/path-to-your-image.jpg"
+              src={profile}
               alt="Me at Giza Pyramid"
               layout="fill"
               objectFit="cover"
@@ -54,7 +60,7 @@ const About: React.FC<AboutProps> = ({ name, description, socials }) => {
         </div>
 
         <div className="flex-1">
-          <p className="mb-4">{description}</p>
+          <Markdown>{description}</Markdown>
         </div>
       </div>
     </div>

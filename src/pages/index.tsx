@@ -52,6 +52,7 @@ export type SocialInformation = {
 export type PersonalInformation = {
   name: string;
   title: string;
+  profile: string;
   description: string;
   socials: SocialInformation;
   projects: ProjectMetadata[];
@@ -63,8 +64,15 @@ export const getPersonalInformation = () => {
   return {
     name: "XiaoYun Zhang",
     title: "Web Developer | Tech Enthusiast | Coffee Lover",
-    description:
-      "Welcome to my personal website. I'm a software developer and cat lover",
+    description:`I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
+
+In Microsoft, I am primarily focused on AI for .Net and Visual Studio. I co-authored and contributed to [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that enables developers to create AI agents with ease. I also work on [ML.Net](https://github.com/dotnet/machinelearning) \
+and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) to make machine learning more accessible to .Net developers.
+
+In my free time, I enjoy creating projects that are fun and/or useful. And my current active projects are [StepWise](https://github.com/LittleLittleCloud/StepWise) and [Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom). \
+Where \`StepWise\` is a agentic workflow engine that helps developers to code, visualize and execute workflows with ease. And \`Agent-ChatRoom\` is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.
+`,
+    profile: "profile.png",
     socials: {
       github: "JohnDoe",
       linkedin: "JohnDoe",
@@ -73,8 +81,11 @@ export const getPersonalInformation = () => {
     },
     projects: [
       {
-        name: "Project 1",
-        description: "This is a description for Project 1.",
+        name: "AutoGen",
+        description: `
+[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework created by the joined effort of Microsoft and Penn State University. As the co-author and core contributor of AutoGen, my primary effort on this project are
+- a
+- b`,
         url: "#",
       },
       {
