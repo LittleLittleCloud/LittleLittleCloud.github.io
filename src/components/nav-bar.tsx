@@ -13,7 +13,7 @@ type NavItem = {
 export interface NavbarProps extends PersonalInformation {
 };
 
-const Navbar: React.FC<NavbarProps> = ({ name }) => {
+const Navbar: React.FC<NavbarProps> = ({ name, resumeUrl }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -59,8 +59,8 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
-                className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                href={resumeUrl}
+                className="bg-pink-500 hover:bg-pink-600 px-3 py-2 rounded-md text-sm font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
             ))}
             <a
               href="/resume.pdf"
-              className="bg-blue-500 hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+              className="bg-pink-500 hover:bg-pink-600 block px-3 py-2 rounded-md text-base font-medium"
               target="_blank"
               rel="noopener noreferrer"
               onClick={toggleMenu}

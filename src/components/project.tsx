@@ -10,20 +10,6 @@ const ProjectItem: React.FC<ProjectProps> = ({ name, description, url }) => {
     <div className="bg-primary/90 hover:bg-primary/50 rounded-lg  p-4 mb-4">
       <h3 className="text-lg font-semibold mb-2">{name}</h3>
       <Markdown>{description}</Markdown>
-      <div className="flex items-center">
-        <label htmlFor={`project-url-${name}`} className="mr-2 text-sm font-medium text-gray-700">
-          Project URL:
-        </label>
-        <a
-          id={`project-url-${name}`}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:underline text-sm"
-        >
-          {url}
-        </a>
-      </div>
     </div>
   );
 };
