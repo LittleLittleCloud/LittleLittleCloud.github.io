@@ -6,6 +6,8 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -163,15 +165,33 @@ Plus Microsoft.ML.GenAI which implements a series of popular GenAI models, such 
 export default function Home() {
   const personalInformation = getPersonalInformation();
 
+  const [mounted, setMounted] = useState(false);
+	const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
+
+	// useEffect only runs on the client, so now we can safely show the UI
+	useEffect(() => {
+		setMounted(true);
+    console.log("Home component mounted");
+	}, []);
+
+  useEffect(() => {
+    setTheme(systemTheme!);
+    console.log("Theme changed to system theme", systemTheme);
+  }, [systemTheme]);
+
+	if (!mounted) {
+		return null;
+	}
+
   return (
-    <div className="min-h-screen bg-accent/10">
-      <main className="max-w-5xl mx-auto py-6 sm:px-6 lg:px-8 bg-primary">
+    <div className="min-h-screen">
+      <div className="max-w-5xl mx-auto py-6 sm:px-6 lg:px-8">
         <Navbar {...personalInformation} />
         <About {...personalInformation} />
         <ProjectSection {...personalInformation} />
         <Experience {...personalInformation} />
         <EducationSection {...personalInformation} />
-      </main>
+      </div>
 
       <footer className="hadow mt-8">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">

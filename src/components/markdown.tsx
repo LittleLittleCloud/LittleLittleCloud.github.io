@@ -9,7 +9,7 @@ import remarkGfm from "remark-gfm";
 export const Markdown = (props: ReactMarkdownOptions) => {
 	return (
 		<ReactMarkdown
-			className="prose max-w-none prose-p:text-primary-foreground prose-a:text-pink-500 prose-bullets:text-pink-500 prose-li:text-primary-foreground prose-code:text-primary-foreground/80"
+			className="prose max-w-none prose-default"
 			{...props}
 			remarkPlugins={[remarkGfm]}
 			components={{

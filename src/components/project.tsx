@@ -7,7 +7,7 @@ interface ProjectProps extends ProjectMetadata {
 
 const ProjectItem: React.FC<ProjectProps> = ({ name, description, url }) => {
   return (
-    <div className="bg-primary/90 hover:bg-primary/50 rounded-lg  p-4 mb-4">
+    <div className="hover:bg-accent rounded-lg  p-4 mb-4">
       <h3 className="text-lg font-semibold mb-2">{name}</h3>
       <Markdown>{description}</Markdown>
     </div>

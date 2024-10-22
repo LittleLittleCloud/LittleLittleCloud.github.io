@@ -9,6 +9,29 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		typography: ({ theme }: { theme: (path: string) => string }) => ({
+			default: {
+				css: {
+					"--tw-prose-body": "hsl(var(--foreground) / 0.9)",
+					"--tw-prose-headings": "hsl(var(--foreground))",
+					"--tw-prose-lead": "hsl(var(--foreground) / 0.8)",
+					"--tw-prose-links": "hsl(var(--foreground))",
+					"--tw-prose-bold": "hsl(var(--foreground))",
+					"--tw-prose-counters": "hsl(var(--foreground) / 0.7)",
+					"--tw-prose-bullets": "hsl(var(--foreground) / 0.6)",
+					"--tw-prose-hr": "hsl(var(--foreground) / 0.3)",
+					"--tw-prose-quotes": "hsl(var(--foreground) / 0.9)",
+					"--tw-prose-quote-borders":
+						"hsl(var(--foreground) / 0.3)",
+					"--tw-prose-captions": "hsl(var(--foreground) / 0.7)",
+					"--tw-prose-code": "hsl(var(--foreground))",
+					"--tw-prose-pre-code": "hsl(var(--foreground))",
+					"--tw-prose-pre-bg": "hsl(var(--background))",
+					"--tw-prose-th-borders": "hsl(var(--foreground) / 0.3)",
+					"--tw-prose-td-borders": "hsl(var(--foreground) / 0.2)",
+				},
+			},
+		}),
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

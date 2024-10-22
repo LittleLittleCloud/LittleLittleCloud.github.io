@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ name, resumeUrl }) => {
 
   return (
     <div className={`fixed top-0 z-50 left-0 right-0`}>
-      <div className={`w-full  max-w-4xl mx-auto px-4 sm:px-6 lg:px-8  transition-all duration-300 ${isScrolled ? 'bg-primary/90 shadow-md' : ''}`}>
+      <div className={`rounded-lg max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isScrolled ? 'bg-accent' : ''}`}>
         <div className="flex items-center justify-between h-16">
           <div className="flex grow items-center">
             <Link href="/" className="text-xl font-bold">
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ name, resumeUrl }) => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {item.name}
                 </Link>

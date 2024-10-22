@@ -20,7 +20,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, label, value, href }) =
 
 const ContactComponent: React.FC<SocialInformation> = (socials) => {
   return (
-    <div className="shadow-md rounded-lg py-6 w-full mx-auto">
+    <div className="py-6 w-full mx-auto">
       <div className="space-y-3">
         <ContactItem
           icon={<Mail className="w-5 h-5" />}

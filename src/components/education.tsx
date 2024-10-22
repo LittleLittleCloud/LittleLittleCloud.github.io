@@ -15,7 +15,7 @@ const EducationItem: React.FC<EducationItemProps> = ({
   startDate,
   endDate,
 }) => (
-  <article className="mb-6 p-4 bg-primary/90 hover:bg-primary/50 rounded-lg">
+  <article className="mb-6 p-4 hover:bg-accent rounded-lg">
     <header>
       <h3 className="text-lg font-semibold">{school}</h3>
       <p className="text-sm text-gray-500">
