@@ -46,6 +46,8 @@ export type WorkExperience = {
 
 export type SocialInformationItem = {
   label: string;
+  value: string;
+  href: string;
 };
 
 export type SocialInformation = {
