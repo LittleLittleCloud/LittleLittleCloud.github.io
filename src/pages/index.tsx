@@ -46,8 +46,6 @@ export type WorkExperience = {
 
 export type SocialInformationItem = {
   label: string;
-  value: string;
-  href: string;
 };
 
 export type SocialInformation = {
@@ -116,25 +114,33 @@ Feel free to reach out to me if you have any questions or just want to chat. I a
 developing the core functionalities, like group chat. Plus the .Net Implementation of this framework.`,
       },
       {
-        name: "ML.Net",
-        description: "[ML.Net](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
-        [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
-        to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
-        which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the [Torchsharp](https://github.com/dotnet/torchsharp) library.",
-      },
-      {
-        name: "ML.Net Model Builder",
-        description: "[ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) is a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. \
-        I start working on this project since 2019. As the core contributor of this project, I anticipate all the development cycles of this project, from the initial design to the final release. \
-        ML.Net Model Builder is now part of .Net development workload in Visual Studio 2022.",
+        name: "StepWise",
+        description: `
+[StepWise](https://github.com/LittleLittleCloud/StepWise) is an Open-Source .NET framework which assists you to code, visualize and execute event-base workflow. It is designed to help you build complex workflows in a simple and efficient way. StepWise comes with the following key features:
+- **Code-First**: Define workflows using C# code in your project.
+- **WebUI** Visualize and execute workflows from your favorite browser using StepWise WebUI.
+- **Event-Driven**: Execute steps in parallel and resolve dependencies automatically.
+- **AI-Powered**: Work with Geeno, a built-in AI assistant in StepWise WebUI to help you run and analyze workflows with ease.
+
+To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main).
+`,
       },
       {
         name: "Agent-ChatRoom",
         description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
       },
       {
-        name: "StepWise",
-        description: "[StepWise](https://github.com/LittleLittleCloud/StepWise) is an agentic workflow engine that helps developers to code, visualize and execute workflows with ease.",
+        name: "ML.NET",
+        description: "[ML.NET](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
+        [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
+        to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
+        which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the [Torchsharp](https://github.com/dotnet/torchsharp) library.",
+      },
+      {
+        name: "ML.NET Model Builder",
+        description: "[ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) is a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. \
+        I start working on this project since 2019. As the core contributor of this project, I anticipate all the development cycles of this project, from the initial design to the final release. \
+        ML.NET Model Builder is now part of .NET development workload in Visual Studio 2022.",
       }
     ],
     education: [
@@ -144,7 +150,8 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
         startDate: "September 2014",
         endDate: "June 2018",
         major: "Computer Science",
-      },
+        graduation: "June 2018",
+        description: "I graduated from Xi'an Jiaotong University with a Bachelor of Science in Computer Science.",      },
     ],
     workExperience: [
       {
@@ -166,25 +173,29 @@ export default function Home() {
   const personalInformation = getPersonalInformation();
 
   const [mounted, setMounted] = useState(false);
-	const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
 
-	// useEffect only runs on the client, so now we can safely show the UI
-	useEffect(() => {
-		setMounted(true);
+  useEffect(() => {
+    setMounted(true);
     console.log("Home component mounted");
-	}, []);
+  }, []);
 
   useEffect(() => {
     setTheme(systemTheme!);
     console.log("Theme changed to system theme", systemTheme);
   }, [systemTheme]);
 
-	if (!mounted) {
-		return null;
-	}
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen">
+      <Head>
+        <title>{personalInformation.name} - {personalInformation.title}</title>
+        <meta name="description" content="Personal website for XiaoYun Zhang, showcasing portfolio and blog." />
+        <meta name="keywords" content="XiaoYun Zhang, portfolio, blog, web developer, software engineer" />
+      </Head>
       <div className="max-w-5xl mx-auto py-6 sm:px-6 lg:px-8">
         <Navbar {...personalInformation} />
         <About {...personalInformation} />
