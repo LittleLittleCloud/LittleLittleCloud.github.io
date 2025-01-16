@@ -14,7 +14,7 @@ const About: React.FC<AboutProps> = ({ name, description, socials, profile }) =>
     console.log("About component mounted");
   }, []);
   return (
-    <div id="about" className="max-w-4xl pt-16 mx-auto p-6 ">
+    <div id="about" className="flex flex-col items-center max-w-4xl pt-16 mx-auto p-6 ">
       <div className="w-full flex flex-col md:flex-row gap-8">
         <div className="flex flex-col w-64">
           <div className="relative h-80">
@@ -26,13 +26,12 @@ const About: React.FC<AboutProps> = ({ name, description, socials, profile }) =>
               className="rounded-lg"
             />
           </div>
-          <ContactComponent {...socials} />
         </div>
-
         <div className="flex-1">
           <Markdown>{description}</Markdown>
         </div>
       </div>
+      <ContactComponent {...socials} />
     </div>
   );
 };

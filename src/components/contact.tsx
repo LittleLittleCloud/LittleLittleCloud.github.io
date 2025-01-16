@@ -21,7 +21,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, label, value, href }) =
 const ContactComponent: React.FC<SocialInformation> = (socials) => {
   return (
     <div className="py-6 w-full mx-auto">
-      <div className="space-y-3">
+      <div className="flex flex-col justify-between sm:flex-row">
         <ContactItem
           icon={<Mail className="w-5 h-5" />}
           {...socials.email}

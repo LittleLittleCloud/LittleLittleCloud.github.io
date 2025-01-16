@@ -75,14 +75,10 @@ export const getPersonalInformation = () => {
     title: "Web Developer | Tech Enthusiast | Coffee Lover",
     description:`I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 
-In Microsoft, I am primarily focused on AI for .Net and Visual Studio. I co-authored and contributed to [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that enables developers to create AI agents with ease. I also work on [ML.Net](https://github.com/dotnet/machinelearning) \
+In Microsoft, I am primarily focused on AI for .NET and Visual Studio. I co-authored and contributed to [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that enables developers to create AI agents with ease. I also work on [ML.NET](https://github.com/dotnet/machinelearning) \
 and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) to make machine learning more accessible to .Net developers.
 
-In my free time, I enjoy creating projects that are fun and/or useful. And my current active projects are [StepWise](https://github.com/LittleLittleCloud/StepWise) and [Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom). \
-Where \`StepWise\` is a agentic workflow engine that helps developers to code, visualize and execute workflows with ease. And \`Agent-ChatRoom\` is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.\
-
-
-Feel free to reach out to me if you have any questions or just want to chat. I am always happy to help and make new friends.
+In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
     profile: "profile.png",
     resumeUrl: "resumeLatest.pdf",
@@ -130,6 +126,10 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       {
         name: "Agent-ChatRoom",
         description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
+      },
+      {
+        name: "AutoPUA",
+        description: "[AutoPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.![AutoPUA preview](autopua.png)",
       },
       {
         name: "ML.NET",
