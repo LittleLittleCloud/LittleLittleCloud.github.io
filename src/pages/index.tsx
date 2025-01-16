@@ -120,7 +120,8 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
 - **Event-Driven**: Execute steps in parallel and resolve dependencies automatically.
 - **AI-Powered**: Work with Geeno, a built-in AI assistant in StepWise WebUI to help you run and analyze workflows with ease.
 
-To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main).
+To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main). You can also try the online demo below:
+[![StepWise preview](stepwise.png)](https://stepwisegallery20241128154731.azurewebsites.net/)
 `,
       },
       {
@@ -129,7 +130,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "AutoPUA",
-        description: "[AutoPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.![AutoPUA preview](autopua.png)",
+        description: "[AutoPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](https://www.autopua.com)",
       },
       {
         name: "ML.NET",
