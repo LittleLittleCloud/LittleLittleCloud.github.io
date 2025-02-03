@@ -129,8 +129,8 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
         description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
       },
       {
-        name: "AutoPUA",
-        description: "[AutoPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](https://www.autopua.com)",
+        name: "ChatPUA",
+        description: "[ChatPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](https://www.autopua.com)",
       },
       {
         name: "ML.NET",
