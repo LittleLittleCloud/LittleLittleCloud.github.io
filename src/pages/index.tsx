@@ -137,7 +137,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
         description: `
 [GBI Dashboard](https://littlelittlecloud.github.io/GBI/) tracks Gold-Based Index (GBI) prices and provides a simple and efficient way to visualize the GBI price trends, which is designed to answer such a question: "How much gain does my investment actually make compared to gold?"
 
-![GBI Dashboard preview](gbi.png)](https://littlelittlecloud.github.io/GBI/)
+![GBI Dashboard preview](GBI.png)](https://littlelittlecloud.github.io/GBI/)
 `,
       },
       {
