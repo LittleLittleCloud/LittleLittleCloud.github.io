@@ -130,7 +130,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "ChatPUA",
-        description: "[ChatPUA](https://www.autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](https://www.autopua.com)",
+        description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](autopua.com)",
       },
       {
         name: "GBI Dashboard",
