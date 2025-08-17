@@ -107,12 +107,14 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
     projects: [
       {
         name: "AutoGen",
+        url: "https://github.com/microsoft/autogen",
         description: `
 [AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework created by the joined effort of Microsoft and Penn State University. As the co-author and core contributor of AutoGen, my primary focus on this project are \
 developing the core functionalities, like group chat. Plus the .Net Implementation of this framework.`,
       },
       {
         name: "StepWise",
+        url: "https://github.com/LittleLittleCloud/StepWise",
         description: `
 [StepWise](https://github.com/LittleLittleCloud/StepWise) is an Open-Source .NET framework which assists you to code, visualize and execute event-base workflow. It is designed to help you build complex workflows in a simple and efficient way. StepWise comes with the following key features:
 - **Code-First**: Define workflows using C# code in your project.
@@ -126,6 +128,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "llm-canvas",
+        url: "https://github.com/LittleLittleCloud/llm-canvas",
         description: `
 [llm-canvas](https://github.com/LittleLittleCloud/llm-canvas) allows you to programmatically create interactive, branching conversation trees. Build complex conversation structures, explore different response paths, and visualize tool calls in a beautiful web interface — all while maintaining complete privacy with local deployment.
 
@@ -134,14 +137,17 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "Agent-ChatRoom",
+        url: "https://github.com/LittleLittleCloud/Agent-ChatRoom",
         description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
       },
       {
         name: "ChatPUA",
+        url: "https://github.com/LittleLittleCloud/ChatPUA",
         description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](autopua.com)",
       },
       {
         name: "GBI Dashboard",
+        url: "https://littlelittlecloud.github.io/GBI/",
         description: `
 [GBI Dashboard](https://littlelittlecloud.github.io/GBI/) tracks Gold-Based Index (GBI) prices and provides a simple and efficient way to visualize the GBI price trends, which is designed to answer such a question: "How much gain does my investment actually make compared to gold?"
 
@@ -150,6 +156,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "ML.NET",
+        url: "https://github.com/dotnet/machinelearning",
         description: "[ML.NET](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
         [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
         to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
@@ -157,6 +164,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       },
       {
         name: "ML.NET Model Builder",
+        url: "https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder",
         description: "[ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) is a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. \
         I start working on this project since 2019. As the core contributor of this project, I anticipate all the development cycles of this project, from the initial design to the final release. \
         ML.NET Model Builder is now part of .NET development workload in Visual Studio 2022.",
