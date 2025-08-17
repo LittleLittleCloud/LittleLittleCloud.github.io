@@ -1,37 +1,52 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { PersonalInformation } from "@/pages";
-import Link from "next/link";
-import { GithubIcon, Linkedin, Mail, Twitter } from "lucide-react";
 import { Markdown } from "./markdown";
-import ContactComponent from "./contact";
 
 export interface AboutProps extends PersonalInformation {}
 
-const About: React.FC<AboutProps> = ({ name, description, socials, profile }) => {
-  const iconSize = 20;
+const About: React.FC<AboutProps> = ({ name, description, profile }) => {
   useEffect(() => {
     console.log("About component mounted");
   }, []);
+  
   return (
-    <div id="about" className="flex flex-col items-center max-w-4xl pt-16 mx-auto p-6 ">
-      <div className="w-full flex flex-col md:flex-row gap-8">
-        <div className="flex flex-col w-64">
-          <div className="relative h-80">
-            <Image
-              src={profile}
-              alt="PanPan"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
-            />
+    <div id="about" className="pt-24 pb-16">
+      <div className="backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 rounded-3xl shadow-2xl border border-gray-200/20 dark:border-gray-700/20 p-8 lg:p-12">
+        <div className="flex flex-col lg:flex-row gap-12 items-center lg:items-start">
+          {/* Profile Image */}
+          <div className="flex-shrink-0">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <div className="relative w-72 h-80 overflow-hidden rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-300">
+                <Image
+                  src={profile}
+                  alt="Profile"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="flex-1 space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
+                {name}
+              </h1>
+              <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">
+                Senior Software Engineer at Microsoft
+              </p>
+            </div>
+            
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+              <Markdown>{description}</Markdown>
+            </div>
           </div>
         </div>
-        <div className="flex-1">
-          <Markdown>{description}</Markdown>
-        </div>
       </div>
-      <ContactComponent {...socials} />
     </div>
   );
 };
