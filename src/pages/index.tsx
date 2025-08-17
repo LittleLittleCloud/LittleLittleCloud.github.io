@@ -125,6 +125,14 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
 `,
       },
       {
+        name: "llm-canvas",
+        description: `
+[llm-canvas](https://github.com/LittleLittleCloud/llm-canvas) allows you to programmatically create interactive, branching conversation trees. Build complex conversation structures, explore different response paths, and visualize tool calls in a beautiful web interface — all while maintaining complete privacy with local deployment.
+
+![llm-canvas preview](llmcanvas.png)
+`,
+      },
+      {
         name: "Agent-ChatRoom",
         description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
       },
