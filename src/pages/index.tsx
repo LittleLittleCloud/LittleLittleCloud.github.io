@@ -6,7 +6,6 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
-import SocialMediaBar from "@/components/social-media-bar";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -228,7 +227,6 @@ export default function Home() {
         <Navbar {...personalInformation} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <About {...personalInformation} />
-          <SocialMediaBar {...personalInformation.socials} />
           <ProjectSection {...personalInformation} />
           <Experience {...personalInformation} />
           <EducationSection {...personalInformation} />
