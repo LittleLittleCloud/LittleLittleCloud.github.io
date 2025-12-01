@@ -106,6 +106,11 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
     },
     projects: [
       {
+        name: "RazorConsole",
+        url: "https://github.com/RazorConsole/RazorConsole",
+        description: `[RazorConsole](https://github.com/RazorConsole/RazorConsole) bridges the gap between modern web UI development and console applications. It lets you create sophisticated terminal interfaces using Razor components, complete with interactive elements, rich styling, and familiar development patterns.`,
+      },
+      {
         name: "AutoGen",
         url: "https://github.com/microsoft/autogen",
         description: `
