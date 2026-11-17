@@ -78,7 +78,7 @@ and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearni
 In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
     profile: "profile.jpg",
-    resumeUrl: "resumeLatest.pdf",
+    resumeUrl: "/resume",
     socials: {
       github: {
         label: "GitHub",
