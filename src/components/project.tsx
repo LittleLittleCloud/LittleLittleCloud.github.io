@@ -57,10 +57,10 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
         <div id="projects" className="py-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-4">
-              Featured Projects
+              Side Projects
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Explore my latest work and contributions to open-source projects
+              Things I build outside of work
             </p>
           </div>
           

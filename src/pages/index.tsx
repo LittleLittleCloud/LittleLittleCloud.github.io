@@ -33,12 +33,25 @@ export type Education = {
   description: string;
 };
 
-export type WorkExperience = {
-  company: string;
-  position: string;
+export type WorkRole = {
+  title: string;
   startDate: string;
   endDate: string;
-  description: string;
+};
+
+export type WorkHighlight = {
+  name: string;
+  url?: string;
+  role: string;
+  period: string;
+  description: string; // markdown
+};
+
+export type WorkExperience = {
+  company: string;
+  roles: WorkRole[];
+  summary?: string;
+  highlights: WorkHighlight[];
 };
 
 export type SocialInformationItem = {
@@ -72,8 +85,7 @@ export const getPersonalInformation = () => {
     title: "Web Developer | Tech Enthusiast | Coffee Lover",
     description:`I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 
-In Microsoft, I am primarily focused on AI for .NET and Visual Studio. I co-authored and contributed to [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that enables developers to create AI agents with ease. I also work on [ML.NET](https://github.com/dotnet/machinelearning) \
-and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) to make machine learning more accessible to .Net developers.
+At Microsoft, I focus on AI for .NET and Visual Studio. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
 
 In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
@@ -106,70 +118,6 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
         name: "RazorConsole",
         url: "https://github.com/RazorConsole/RazorConsole",
         description: `[RazorConsole](https://github.com/RazorConsole/RazorConsole) bridges the gap between modern web UI development and console applications. It lets you create sophisticated terminal interfaces using Razor components, complete with interactive elements, rich styling, and familiar development patterns.`,
-      },
-      {
-        name: "AutoGen",
-        url: "https://github.com/microsoft/autogen",
-        description: `
-[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework created by the joined effort of Microsoft and Penn State University. As the co-author and core contributor of AutoGen, my primary focus on this project are \
-developing the core functionalities, like group chat. Plus the .Net Implementation of this framework.`,
-      },
-      {
-        name: "StepWise",
-        url: "https://github.com/LittleLittleCloud/StepWise",
-        description: `
-[StepWise](https://github.com/LittleLittleCloud/StepWise) is an Open-Source .NET framework which assists you to code, visualize and execute event-base workflow. It is designed to help you build complex workflows in a simple and efficient way. StepWise comes with the following key features:
-- **Code-First**: Define workflows using C# code in your project.
-- **WebUI** Visualize and execute workflows from your favorite browser using StepWise WebUI.
-- **Event-Driven**: Execute steps in parallel and resolve dependencies automatically.
-- **AI-Powered**: Work with Geeno, a built-in AI assistant in StepWise WebUI to help you run and analyze workflows with ease.
-
-To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main). You can also try the online demo below:
-[![StepWise preview](stepwise.jpg)](https://stepwisegallery20241128154731.azurewebsites.net/)
-`,
-      },
-      {
-        name: "LLM Canvas",
-        url: "https://github.com/LittleLittleCloud/llm-canvas",
-        description: `
-[llm-canvas](https://github.com/LittleLittleCloud/llm-canvas) allows you to programmatically create interactive, branching conversation trees. Build complex conversation structures, explore different response paths, and visualize tool calls in a beautiful web interface — all while maintaining complete privacy with local deployment.
-
-![llm-canvas preview](llmcanvas.jpg)
-`,
-      },
-      {
-        name: "Agent ChatRoom",
-        url: "https://github.com/LittleLittleCloud/Agent-ChatRoom",
-        description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
-      },
-      {
-        name: "ChatPUA",
-        url: "https://github.com/LittleLittleCloud/ChatPUA",
-        description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.jpg)](autopua.com)",
-      },
-      {
-        name: "GBI Dashboard",
-        url: "https://littlelittlecloud.github.io/GBI/",
-        description: `
-[GBI Dashboard](https://littlelittlecloud.github.io/GBI/) tracks Gold-Based Index (GBI) prices and provides a simple and efficient way to visualize the GBI price trends, which is designed to answer such a question: "How much gain does my investment actually make compared to gold?"
-
-[![GBI Dashboard preview](GBI.jpg)](https://littlelittlecloud.github.io/GBI/)
-`,
-      },
-      {
-        name: "ML.NET",
-        url: "https://github.com/dotnet/machinelearning",
-        description: "[ML.NET](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
-        [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
-        to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
-        which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the [Torchsharp](https://github.com/dotnet/torchsharp) library.",
-      },
-      {
-        name: "ML.NET Model Builder",
-        url: "https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder",
-        description: "[ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) is a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. \
-        I start working on this project since 2019. As the core contributor of this project, I anticipate all the development cycles of this project, from the initial design to the final release. \
-        ML.NET Model Builder is now part of .NET development workload in Visual Studio 2022.",
       }
     ],
     education: [
@@ -185,14 +133,40 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
     workExperience: [
       {
         company: "Microsoft",
-        position: "Senior Software Engineer",
-        startDate: "October 2018",
-        endDate: "Present",
-        description: "- Co-authored and Co-created AutoGen, a multi-agent framework that enables developers to create AI agents with ease. \
-        I am responsible for developing the core functionalities, like group chat, and the .Net Implementation of this framework. \n \
-- Develop ML.Net, the most popular machine learning framework for .Net developers. In ML.Net, I am primarily working on Microsoft.ML.AutoML to provide a simple and efficient way to optimize hyperparameters for machine learning models. \
-Plus Microsoft.ML.GenAI which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the Torchsharp library. \n \
-- Develop ML.Net Model Builder, a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. I anticipate all the development cycles of this project, from the initial design to the final release."
+        roles: [
+          { title: "Senior Software Engineer", startDate: "Sep 2022", endDate: "Present" },
+          { title: "Software Engineer II", startDate: "Sep 2020", endDate: "Sep 2022" },
+          { title: "Software Engineer", startDate: "Oct 2018", endDate: "Sep 2020" },
+        ],
+        summary: "Developer Division: AI and machine learning for .NET and Visual Studio.",
+        highlights: [
+          {
+            name: "AutoGen",
+            url: "https://github.com/microsoft/autogen",
+            role: "Co-author & core contributor",
+            period: "May 2023 – Present",
+            description: `
+[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework for building agentic AI applications, created jointly by Microsoft and Penn State University.
+
+- Pioneered the multi-agent pattern in AutoGen, helping establish it as one of the most popular frameworks in the LLM-agent field.
+- Proposed and implemented the **GroupChat** pattern, a key feature driving AutoGen's adoption.
+- Maintained the core library across both the Python and .NET implementations.
+`,
+          },
+          {
+            name: "ML.NET",
+            url: "https://github.com/dotnet/machinelearning",
+            role: "Core contributor",
+            period: "May 2019 – Present",
+            description: `
+[ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source, cross-platform machine learning framework for .NET.
+
+- **AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.
+- **GenAI**: Built \`Microsoft.ML.GenAI\`, which implements popular models such as Phi-3, Llama 3 and Mistral (plus Stable Diffusion) on [TorchSharp](https://github.com/dotnet/TorchSharp), so .NET developers can run them natively.
+- **Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.
+`,
+          },
+        ],
       },
     ],
   } as PersonalInformation;
@@ -258,8 +232,8 @@ export default function Home() {
         <Navbar {...personalInformation} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <About {...personalInformation} />
-          <ProjectSection {...personalInformation} />
           <Experience {...personalInformation} />
+          <ProjectSection {...personalInformation} />
           <EducationSection {...personalInformation} />
         </div>
 
