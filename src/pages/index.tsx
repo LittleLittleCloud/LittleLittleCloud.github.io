@@ -157,7 +157,7 @@ export default function Home({ stars }: HomeProps) {
     "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, former ML.NET core contributor, and creator of RazorConsole.";
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 ${geistSans.variable} ${geistMono.variable} font-sans`}>
+    <div className={`min-h-screen bg-slate-50 font-sans text-slate-700 dark:bg-slate-950 dark:text-slate-300 ${geistSans.variable} ${geistMono.variable}`}>
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
@@ -197,30 +197,21 @@ export default function Home({ stars }: HomeProps) {
         />
       </Head>
       
-      {/* Background decoration */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-500"></div>
-      </div>
+      <Navbar {...personalInformation} />
+      <main className="mx-auto max-w-5xl space-y-16 px-4 pb-16 sm:space-y-20 sm:px-6">
+        <About {...personalInformation} />
+        <Experience {...personalInformation} />
+        <ProjectSection {...personalInformation} />
+        <EducationSection {...personalInformation} />
+      </main>
 
-      <div className="relative z-10">
-        <Navbar {...personalInformation} />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          <About {...personalInformation} />
-          <Experience {...personalInformation} />
-          <ProjectSection {...personalInformation} />
-          <EducationSection {...personalInformation} />
+      <footer className="border-t border-slate-200 dark:border-slate-800">
+        <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+          <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+            {`© ${new Date().getFullYear()} ${personalInformation.name}`}
+          </p>
         </div>
-
-        <footer className="mt-16 border-t border-gray-200/20 backdrop-blur-sm bg-white/10 dark:bg-gray-900/10">
-          <div className="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-gray-600 dark:text-gray-400">
-              {`© ${new Date().getFullYear()} ${personalInformation.name}. All rights reserved.`}
-            </p>
-          </div>
-        </footer>
-      </div>
+      </footer>
     </div>
   );
 }
