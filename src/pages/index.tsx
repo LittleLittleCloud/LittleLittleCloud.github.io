@@ -72,8 +72,7 @@ export const getPersonalInformation = () => {
     title: "Web Developer | Tech Enthusiast | Coffee Lover",
     description:`I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 
-In Microsoft, I am primarily focused on AI for .NET and Visual Studio. I co-authored and contributed to [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that enables developers to create AI agents with ease. I also work on [ML.NET](https://github.com/dotnet/machinelearning) \
-and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) to make machine learning more accessible to .Net developers.
+At Microsoft, I focus on AI for .NET and Visual Studio. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
 
 In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
@@ -117,10 +116,13 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
       {
         name: "ML.NET",
         url: "https://github.com/dotnet/machinelearning",
-        description: "[ML.NET](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
-        [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
-        to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
-        which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the [Torchsharp](https://github.com/dotnet/torchsharp) library.",
+        description: `
+[ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source, cross-platform machine learning framework for .NET. I have been a core contributor since 2019:
+
+- **AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.
+- **GenAI**: Built \`Microsoft.ML.GenAI\`, which implements popular models such as Phi-3, Llama 3 and Mistral (plus Stable Diffusion) on [TorchSharp](https://github.com/dotnet/TorchSharp), so .NET developers can run them natively.
+- **Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.
+`,
       }
     ],
     education: [
@@ -139,11 +141,11 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
         position: "Senior Software Engineer",
         startDate: "October 2018",
         endDate: "Present",
-        description: "- Co-authored and Co-created AutoGen, a multi-agent framework that enables developers to create AI agents with ease. \
-        I am responsible for developing the core functionalities, like group chat, and the .Net Implementation of this framework. \n \
-- Develop ML.Net, the most popular machine learning framework for .Net developers. In ML.Net, I am primarily working on Microsoft.ML.AutoML to provide a simple and efficient way to optimize hyperparameters for machine learning models. \
-Plus Microsoft.ML.GenAI which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the Torchsharp library. \n \
-- Develop ML.Net Model Builder, a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. I anticipate all the development cycles of this project, from the initial design to the final release."
+        description: `
+- **AutoGen**: Co-authored and co-created AutoGen, an open-source multi-agent framework. Proposed and implemented the GroupChat pattern and other core features, and maintained both the Python and .NET implementations.
+- **ML.NET**: Core contributor to ML.NET, the most popular machine learning framework for .NET. Implemented Microsoft.ML.AutoML v2 from scratch for state-of-the-art tabular performance, and built Microsoft.ML.GenAI to run models such as Phi-3, Llama 3 and Mistral natively via TorchSharp.
+- **ML.NET Model Builder**: Led development of the Visual Studio machine learning wizard built on ML.NET AutoML.
+`,
       },
     ],
   } as PersonalInformation;
