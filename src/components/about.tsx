@@ -34,16 +34,15 @@ const About: React.FC<AboutProps> = ({ name, description, profile, socials }) =>
         <div className="flex flex-col lg:flex-row gap-12 items-center lg:items-start mb-12">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="relative w-72 h-80 overflow-hidden rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-300">
+            <div className="rounded-3xl bg-white/80 p-2 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.35)] ring-1 ring-gray-900/5 dark:bg-gray-800/80 dark:ring-white/10">
+              <div className="relative h-80 w-72 overflow-hidden rounded-2xl">
                 <Image
                   src={profile}
                   alt={name}
                   fill
                   priority
                   sizes="288px"
-                  className="rounded-2xl object-cover"
+                  className="object-cover"
                 />
               </div>
             </div>
