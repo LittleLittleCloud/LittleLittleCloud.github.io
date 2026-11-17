@@ -1,32 +1,15 @@
-import { ReactMarkdownProps } from "react-markdown/lib/complex-types";
 import {
 	ReactMarkdown,
 	ReactMarkdownOptions,
 } from "react-markdown/lib/react-markdown";
-import { CodeBlock } from "./codeblock";
 import remarkGfm from "remark-gfm";
 
 export const Markdown = (props: ReactMarkdownOptions) => {
 	return (
 		<ReactMarkdown
-			className="prose max-w-none prose-default"
 			{...props}
 			remarkPlugins={[remarkGfm]}
 			components={{
-				code: ({ node, inline, className, children, ...props }) => {
-					const match = /language-(\w+)/.exec(className || "");
-					return !inline && match ? (
-						<CodeBlock
-							language={match[1]}
-							value={String(children).replace(/\n$/, "")}
-							{...props}
-						/>
-					) : (
-						<code {...props} className={className}>
-							{children}
-						</code>
-					);
-				},
 				// eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
 				img: ({ node, ...imgProps }) => <img loading="lazy" decoding="async" {...imgProps} />,
 				...props.components,
