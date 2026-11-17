@@ -1,7 +1,9 @@
 // Single source of truth for the /resume page (and its PDF export via print).
 // Edit this file to update the resume; no layout changes needed.
 
-export type ResumeLink = { label: string; href: string };
+export type ResumeContactKind = "email" | "website" | "github" | "linkedin";
+
+export type ResumeLink = { kind: ResumeContactKind; label: string; href: string };
 
 export type ResumeRole = { title: string; start: string; end: string };
 
@@ -35,13 +37,13 @@ export const resume: Resume = {
   name: "XiaoYun Zhang",
   headline: "Senior Software Engineer · AI Agents & Machine Learning for .NET",
   contacts: [
-    { label: "xiaoyun@littlelittlecloud.com", href: "mailto:xiaoyun@littlelittlecloud.com" },
-    { label: "littlelittlecloud.com", href: "https://littlelittlecloud.com" },
-    { label: "github.com/LittleLittleCloud", href: "https://github.com/LittleLittleCloud" },
-    { label: "linkedin.com/in/xiaoyun-zhang-1b531013a", href: "https://www.linkedin.com/in/xiaoyun-zhang-1b531013a/" },
+    { kind: "email", label: "xiaoyun@littlelittlecloud.com", href: "mailto:xiaoyun@littlelittlecloud.com" },
+    { kind: "website", label: "littlelittlecloud.com", href: "https://littlelittlecloud.com" },
+    { kind: "github", label: "github.com/LittleLittleCloud", href: "https://github.com/LittleLittleCloud" },
+    { kind: "linkedin", label: "linkedin.com/in/xiaoyun-zhang-1b531013a", href: "https://www.linkedin.com/in/xiaoyun-zhang-1b531013a/" },
   ],
   summary:
-    "Senior software engineer in Microsoft Developer Division building AI and machine learning developer tools since 2018. Co-author of AutoGen, one of the most popular multi-agent LLM frameworks; owner of ML.NET Model Builder and core contributor to ML.NET.",
+    "Senior software engineer in Microsoft Developer Division building AI and machine learning developer tools since 2018. Co-author of AutoGen, one of the most popular multi-agent LLM frameworks, and core contributor to ML.NET, where I built the AutoML v2 engine and native GenAI model support.",
   experience: [
     {
       company: "Microsoft",
@@ -73,19 +75,8 @@ export const resume: Resume = {
           bullets: [
             "Implemented the Microsoft.ML.AutoML v2 framework from scratch, inspired by FLAML, delivering state-of-the-art performance on tabular data.",
             "Built a highly extensible AutoML framework widely used by internal teams for online model updates.",
-            "Implemented GenAI models on TorchSharp (Phi-3, Llama 3, Mistral, Stable Diffusion), enabling .NET developers to integrate GenAI models natively.",
-          ],
-        },
-        {
-          name: "ML.NET Model Builder",
-          href: "https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder",
-          role: "Owner & core contributor",
-          period: "May 2019 – Present",
-          summary: "The most popular machine learning wizard in Visual Studio.",
-          bullets: [
-            "Led development of Model Builder, improving the tooling experience for .NET developers entering machine learning.",
-            "Delivered AutoML capabilities for classification, regression, object detection and NLP scenarios.",
-            "Partnered with Product Management to investigate and prioritize features, and with research teams to ship state-of-the-art algorithms.",
+            "Built Microsoft.ML.GenAI, implementing Phi-3, Llama 3, Mistral and Stable Diffusion on TorchSharp so .NET developers can run GenAI models natively.",
+            "Led ML.NET Model Builder, the Visual Studio machine learning wizard, delivering AutoML for classification, regression, object detection and NLP.",
           ],
         },
       ],
@@ -123,7 +114,7 @@ export const resume: Resume = {
   ],
   skills: [
     { label: "Languages", items: ["C#", "Python", "TypeScript / JavaScript"] },
-    { label: "AI / ML", items: ["LLM agents & multi-agent systems", "AutoML", "GenAI model integration", "TorchSharp"] },
-    { label: "Platforms", items: [".NET", "ML.NET", "Visual Studio extensibility"] },
+    { label: "AI / ML", items: ["LLM agents & multi-agent systems", "AutoML", "GenAI model integration"] },
+    { label: "Platforms", items: [".NET", "ML.NET", "TorchSharp", "Visual Studio extensibility"] },
   ],
 };
