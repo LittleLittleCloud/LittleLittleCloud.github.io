@@ -121,13 +121,6 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
         [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML/0.22.0-preview.24378.1) library, which uses [Flaml](https://github.com/microsoft/FLAML) as the tuning engine behind \
         to provide a simple and efficient way to optimize hyperparameters for machine learning models. Other than that, I am also working on `Microsoft.ML.GenAI` \
         which implements a series of popular GenAI models, such as Phi, Llama and Mistral, using the [Torchsharp](https://github.com/dotnet/torchsharp) library.",
-      },
-      {
-        name: "ML.NET Model Builder",
-        url: "https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder",
-        description: "[ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder) is a simple UI tool that makes it easy to build, train, and deploy custom machine learning models in .NET. \
-        I start working on this project since 2019. As the core contributor of this project, I anticipate all the development cycles of this project, from the initial design to the final release. \
-        ML.NET Model Builder is now part of .NET development workload in Visual Studio 2022.",
       }
     ],
     education: [
