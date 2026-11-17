@@ -61,12 +61,12 @@ export const profile: Profile = {
   photo: "profile.jpg",
   about: `I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 
-At Microsoft, I build developer tools and AI for .NET. Since 2024 I have worked on [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for VS Code, where I own the debugger, .NET Aspire integration and Hot Reload. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
+At Microsoft, I build developer tools and AI for .NET. Since 2024 I have worked on [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for VS Code, where I own the debugger, .NET Aspire integration and Hot Reload. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents, and was a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and led its Visual Studio tooling, ML.NET Model Builder.
 
 Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConsole), an open-source library for building terminal UIs with Razor components. I also enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
   summary:
-    "Senior software engineer in Microsoft Developer Division building .NET developer tools and AI since 2018. Own the debugger, .NET Aspire integration and Hot Reload in C# Dev Kit for VS Code; co-author of AutoGen, one of the most popular multi-agent LLM frameworks; core contributor to ML.NET, where I built the AutoML v2 engine and native GenAI model support. Creator of RazorConsole.",
+    "Senior software engineer in Microsoft Developer Division building .NET developer tools and AI since 2018. Own the debugger, .NET Aspire integration and Hot Reload in C# Dev Kit for VS Code. Previously co-authored AutoGen, one of the most popular multi-agent LLM frameworks, and was a core contributor to ML.NET, building its AutoML v2 engine and native GenAI model support. Creator of RazorConsole.",
   contacts: [
     {
       kind: "email",
@@ -131,7 +131,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
           url: "https://github.com/microsoft/autogen",
           repo: "microsoft/autogen",
           role: "Co-author & core contributor",
-          period: "May 2023 – Present",
+          period: "May 2023 – Mid 2024",
           intro:
             "Open-source multi-agent framework for building agentic AI applications, created jointly by Microsoft and Penn State University.",
           bullets: [
@@ -145,7 +145,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
           url: "https://github.com/dotnet/machinelearning",
           repo: "dotnet/machinelearning",
           role: "Core contributor",
-          period: "May 2019 – Present",
+          period: "May 2019 – 2023",
           intro: "Microsoft's open-source, cross-platform machine learning framework for .NET.",
           bullets: [
             "**AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.",
@@ -162,7 +162,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
       url: "https://github.com/RazorConsole/RazorConsole",
       repo: "RazorConsole/RazorConsole",
       role: "Creator & lead",
-      description: "Build rich, interactive terminal UIs in .NET with Razor components.",
+      description: "A React Ink–style TUI framework for .NET that builds rich, interactive terminal apps with Razor components.",
       bullets: [
         "**Razor components for TUI**: Compose terminal interfaces with the same Razor component model used for web UI.",
         "**Built-in mouse & keyboard support**: Interactive elements handle mouse and keyboard input out of the box.",

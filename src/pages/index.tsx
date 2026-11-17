@@ -154,7 +154,7 @@ export default function Home({ stars }: HomeProps) {
   const personalInformation = withStars(getPersonalInformation(), stars);
   const pageTitle = `${personalInformation.name} - Senior Software Engineer at Microsoft`;
   const pageDescription =
-    "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, core contributor to ML.NET, and creator of RazorConsole.";
+    "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, former ML.NET core contributor, and creator of RazorConsole.";
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 ${geistSans.variable} ${geistMono.variable} font-sans`}>
