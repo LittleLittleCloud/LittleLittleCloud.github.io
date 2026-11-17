@@ -33,12 +33,25 @@ export type Education = {
   description: string;
 };
 
-export type WorkExperience = {
-  company: string;
-  position: string;
+export type WorkRole = {
+  title: string;
   startDate: string;
   endDate: string;
-  description: string;
+};
+
+export type WorkHighlight = {
+  name: string;
+  url?: string;
+  role: string;
+  period: string;
+  description: string; // markdown
+};
+
+export type WorkExperience = {
+  company: string;
+  roles: WorkRole[];
+  summary?: string;
+  highlights: WorkHighlight[];
 };
 
 export type SocialInformationItem = {
@@ -105,24 +118,6 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
         name: "RazorConsole",
         url: "https://github.com/RazorConsole/RazorConsole",
         description: `[RazorConsole](https://github.com/RazorConsole/RazorConsole) bridges the gap between modern web UI development and console applications. It lets you create sophisticated terminal interfaces using Razor components, complete with interactive elements, rich styling, and familiar development patterns.`,
-      },
-      {
-        name: "AutoGen",
-        url: "https://github.com/microsoft/autogen",
-        description: `
-[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework created by the joined effort of Microsoft and Penn State University. As the co-author and core contributor of AutoGen, my primary focus on this project are \
-developing the core functionalities, like group chat. Plus the .Net Implementation of this framework.`,
-      },
-      {
-        name: "ML.NET",
-        url: "https://github.com/dotnet/machinelearning",
-        description: `
-[ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source, cross-platform machine learning framework for .NET. I have been a core contributor since 2019:
-
-- **AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.
-- **GenAI**: Built \`Microsoft.ML.GenAI\`, which implements popular models such as Phi-3, Llama 3 and Mistral (plus Stable Diffusion) on [TorchSharp](https://github.com/dotnet/TorchSharp), so .NET developers can run them natively.
-- **Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.
-`,
       }
     ],
     education: [
@@ -138,14 +133,40 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
     workExperience: [
       {
         company: "Microsoft",
-        position: "Senior Software Engineer",
-        startDate: "October 2018",
-        endDate: "Present",
-        description: `
-- **AutoGen**: Co-authored and co-created AutoGen, an open-source multi-agent framework. Proposed and implemented the GroupChat pattern and other core features, and maintained both the Python and .NET implementations.
-- **ML.NET**: Core contributor to ML.NET, the most popular machine learning framework for .NET. Implemented Microsoft.ML.AutoML v2 from scratch for state-of-the-art tabular performance, and built Microsoft.ML.GenAI to run models such as Phi-3, Llama 3 and Mistral natively via TorchSharp.
-- **ML.NET Model Builder**: Led development of the Visual Studio machine learning wizard built on ML.NET AutoML.
+        roles: [
+          { title: "Senior Software Engineer", startDate: "Sep 2022", endDate: "Present" },
+          { title: "Software Engineer II", startDate: "Sep 2020", endDate: "Sep 2022" },
+          { title: "Software Engineer", startDate: "Oct 2018", endDate: "Sep 2020" },
+        ],
+        summary: "Developer Division: AI and machine learning for .NET and Visual Studio.",
+        highlights: [
+          {
+            name: "AutoGen",
+            url: "https://github.com/microsoft/autogen",
+            role: "Co-author & core contributor",
+            period: "May 2023 – Present",
+            description: `
+[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework for building agentic AI applications, created jointly by Microsoft and Penn State University.
+
+- Pioneered the multi-agent pattern in AutoGen, helping establish it as one of the most popular frameworks in the LLM-agent field.
+- Proposed and implemented the **GroupChat** pattern, a key feature driving AutoGen's adoption.
+- Maintained the core library across both the Python and .NET implementations.
 `,
+          },
+          {
+            name: "ML.NET",
+            url: "https://github.com/dotnet/machinelearning",
+            role: "Core contributor",
+            period: "May 2019 – Present",
+            description: `
+[ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source, cross-platform machine learning framework for .NET.
+
+- **AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.
+- **GenAI**: Built \`Microsoft.ML.GenAI\`, which implements popular models such as Phi-3, Llama 3 and Mistral (plus Stable Diffusion) on [TorchSharp](https://github.com/dotnet/TorchSharp), so .NET developers can run them natively.
+- **Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.
+`,
+          },
+        ],
       },
     ],
   } as PersonalInformation;
@@ -211,8 +232,8 @@ export default function Home() {
         <Navbar {...personalInformation} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <About {...personalInformation} />
-          <ProjectSection {...personalInformation} />
           <Experience {...personalInformation} />
+          <ProjectSection {...personalInformation} />
           <EducationSection {...personalInformation} />
         </div>
 

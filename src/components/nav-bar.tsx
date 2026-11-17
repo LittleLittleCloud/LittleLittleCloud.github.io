@@ -33,8 +33,8 @@ const Navbar: React.FC<NavbarProps> = ({ name, resumeUrl }) => {
 
   const navItems: NavItem[] = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
   ];
 
