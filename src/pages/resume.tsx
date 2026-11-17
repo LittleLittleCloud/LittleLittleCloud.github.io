@@ -1,8 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
 import localFont from "next/font/local";
-import { ArrowLeft, Download } from "lucide-react";
-import { resume } from "@/data/resume";
+import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, type LucideIcon } from "lucide-react";
+import { resume, type ResumeContactKind } from "@/data/resume";
+
+const CONTACT_ICONS: Record<ResumeContactKind, LucideIcon> = {
+  email: Mail,
+  website: Globe,
+  github: Github,
+  linkedin: Linkedin,
+};
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -84,13 +91,17 @@ export default function ResumePage() {
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 print:text-[22pt]">{resume.name}</h1>
           <p className="mt-1 text-base font-medium text-neutral-600 print:text-[11pt]">{resume.headline}</p>
           <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 print:text-[8.5pt]">
-            {resume.contacts.map((c) => (
-              <li key={c.href}>
-                <a href={c.href} className="hover:text-neutral-900 hover:underline">
-                  {c.label}
-                </a>
-              </li>
-            ))}
+            {resume.contacts.map((c) => {
+              const Icon = CONTACT_ICONS[c.kind];
+              return (
+                <li key={c.href}>
+                  <a href={c.href} className="inline-flex items-center gap-1.5 hover:text-neutral-900 hover:underline">
+                    <Icon className="h-[1.05em] w-[1.05em] shrink-0 text-neutral-500" aria-hidden />
+                    {c.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </header>
 
