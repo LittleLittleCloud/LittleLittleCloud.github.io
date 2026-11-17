@@ -27,6 +27,8 @@ export const Markdown = (props: ReactMarkdownOptions) => {
 						</code>
 					);
 				},
+				// eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+				img: ({ node, ...imgProps }) => <img loading="lazy" decoding="async" {...imgProps} />,
 				...props.components,
 			}}
 		>

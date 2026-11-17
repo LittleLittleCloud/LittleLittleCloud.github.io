@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { PersonalInformation, SocialInformation, SocialInformationItem } from "@/pages";
 import { Markdown } from "./markdown";
@@ -27,10 +27,6 @@ const SocialMediaItem: React.FC<SocialMediaItemProps> = ({ icon, label, value, h
 );
 
 const About: React.FC<AboutProps> = ({ name, description, profile, socials }) => {
-  useEffect(() => {
-    console.log("About component mounted");
-  }, []);
-  
   return (
     <div id="about" className="pt-24 pb-16">
       {/* Combined About and Social Media Section in One Card */}
@@ -44,10 +40,11 @@ const About: React.FC<AboutProps> = ({ name, description, profile, socials }) =>
               <div className="relative w-72 h-80 overflow-hidden rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-300">
                 <Image
                   src={profile}
-                  alt="Profile"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-2xl"
+                  alt={name}
+                  fill
+                  priority
+                  sizes="288px"
+                  className="rounded-2xl object-cover"
                 />
               </div>
             </div>
