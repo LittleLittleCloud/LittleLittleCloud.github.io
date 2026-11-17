@@ -1,15 +1,58 @@
 import Head from "next/head";
 import Link from "next/link";
 import localFont from "next/font/local";
-import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, type LucideIcon } from "lucide-react";
-import { resume, type ResumeContactKind } from "@/data/resume";
+import type { GetStaticProps } from "next";
+import ReactMarkdown from "react-markdown";
+import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, Star, Twitter, type LucideIcon } from "lucide-react";
+import { profile as resume, profileRepos, type ContactKind } from "@/data/profile";
+import { fetchStarCounts, formatStars, type StarCounts } from "@/lib/github-stars";
 
-const CONTACT_ICONS: Record<ResumeContactKind, LucideIcon> = {
+const CONTACT_ICONS: Record<ContactKind, LucideIcon> = {
   email: Mail,
   website: Globe,
   github: Github,
   linkedin: Linkedin,
+  twitter: Twitter,
 };
+
+type ResumeProps = { stars: StarCounts };
+
+export const getStaticProps: GetStaticProps<ResumeProps> = async () => ({
+  props: { stars: await fetchStarCounts(profileRepos()) },
+});
+
+/** Inline Markdown (links, bold, code) without block wrappers or prose styles. */
+function Md({ children }: { children: string }) {
+  return (
+    <ReactMarkdown
+      components={{
+        p: ({ children }) => <>{children}</>,
+        a: ({ node, ...props }) => (
+          <a {...props} className="underline decoration-neutral-300 underline-offset-2 hover:decoration-neutral-900" />
+        ),
+        strong: ({ node, ...props }) => <strong {...props} className="font-semibold text-neutral-900" />,
+        code: ({ node, inline, ...props }) => <code {...props} className="font-mono text-[0.92em]" />,
+      }}
+    >
+      {children}
+    </ReactMarkdown>
+  );
+}
+
+function Stars({ repo, stars }: { repo?: string; stars: StarCounts }) {
+  const n = repo ? stars[repo] : undefined;
+  if (n === undefined) return null;
+  return (
+    <a
+      href={`https://github.com/${repo}/stargazers`}
+      className="ml-1.5 inline-flex items-center gap-0.5 align-baseline text-[0.85em] font-medium tabular-nums text-neutral-500"
+      title={`${n.toLocaleString("en-US")} GitHub stars`}
+    >
+      <Star className="h-[0.9em] w-[0.9em] fill-amber-400 text-amber-400" aria-hidden />
+      {formatStars(n)}
+    </a>
+  );
+}
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,7 +92,7 @@ function ExternalName({ name, href }: { name: string; href?: string }) {
   );
 }
 
-export default function ResumePage() {
+export default function ResumePage({ stars }: ResumeProps) {
   const title = `${resume.name} – Resume`;
 
   return (
@@ -91,7 +134,7 @@ export default function ResumePage() {
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 print:text-[22pt]">{resume.name}</h1>
           <p className="mt-1 text-base font-medium text-neutral-600 print:text-[11pt]">{resume.headline}</p>
           <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 print:text-[8.5pt]">
-            {resume.contacts.map((c) => {
+            {resume.contacts.filter((c) => c.onResume).map((c) => {
               const Icon = CONTACT_ICONS[c.kind];
               return (
                 <li key={c.href}>
@@ -134,16 +177,17 @@ export default function ResumePage() {
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                       <p>
                         <span className="font-semibold text-neutral-900">
-                          <ExternalName name={h.name} href={h.href} />
+                          <ExternalName name={h.name} href={h.url} />
                         </span>
+                        <Stars repo={h.repo} stars={stars} />
                         <span className="text-neutral-500"> · {h.role}</span>
                       </p>
                       <span className="shrink-0 tabular-nums text-sm text-neutral-500 print:text-[8.5pt]">{h.period}</span>
                     </div>
-                    {h.summary && <p className="italic text-neutral-600">{h.summary}</p>}
+                    <p className="italic text-neutral-600">{h.intro}</p>
                     <ul className="mt-1 list-disc space-y-0.5 pl-5 marker:text-neutral-400">
                       {h.bullets.map((b) => (
-                        <li key={b}>{b}</li>
+                        <li key={b}><Md>{b}</Md></li>
                       ))}
                     </ul>
                   </div>
@@ -159,9 +203,10 @@ export default function ResumePage() {
             {resume.sideProjects.map((p) => (
               <li key={p.name}>
                 <span className="font-semibold text-neutral-900">
-                  <ExternalName name={p.name} href={p.href} />
+                  <ExternalName name={p.name} href={p.url} />
                 </span>
-                <span> — {p.description}</span>
+                <Stars repo={p.repo} stars={stars} />
+                <span> — <Md>{p.description}</Md></span>
               </li>
             ))}
           </ul>

@@ -1,11 +1,12 @@
 import { PersonalInformation, ProjectMetadata } from '@/pages';
 import React from 'react';
 import { Markdown } from './markdown';
+import { StarBadge } from './star-badge';
 
 interface ProjectProps extends ProjectMetadata {
 }
 
-const ProjectItem: React.FC<ProjectProps> = ({ name, description, url }) => {
+const ProjectItem: React.FC<ProjectProps> = ({ name, description, url, repo, stars }) => {
   return (
     <div className="group relative overflow-hidden rounded-2xl backdrop-blur-xl bg-white/60 dark:bg-gray-900/60 border border-gray-200/20 dark:border-gray-700/20 hover:bg-white/80 dark:hover:bg-gray-900/80 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl shadow-lg">
       {/* Gradient border effect */}
@@ -32,10 +33,11 @@ const ProjectItem: React.FC<ProjectProps> = ({ name, description, url }) => {
       )}
       
       <div className="relative p-8">
-        <div className="mb-6">
+        <div className="mb-6 flex flex-wrap items-center gap-3 pr-12">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
             {name}
           </h3>
+          {repo && stars !== undefined && <StarBadge repo={repo} stars={stars} />}
         </div>
         
         <div className="prose prose-gray dark:prose-invert max-w-none">
