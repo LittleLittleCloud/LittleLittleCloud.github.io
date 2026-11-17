@@ -13,8 +13,7 @@ interface SocialMediaItemProps extends SocialInformationItem {
 const SocialMediaItem: React.FC<SocialMediaItemProps> = ({ icon, label, value, href }) => (
   <a
     href={href}
-    target="_blank"
-    rel="noopener noreferrer"
+    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     className="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
     aria-label={`Visit my ${label}`}
     title={`${label}: ${value}`}

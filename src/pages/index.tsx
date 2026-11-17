@@ -97,8 +97,8 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
       },
       email: {
         label: "Email",
-        value: "xiaoyuz@microsoft.com",
-        href: "mailto:xiaoyuz@microsoft.com",
+        value: "xiaoyun@littlelittlecloud.com",
+        href: "mailto:xiaoyun@littlelittlecloud.com",
       },
     },
     projects: [
