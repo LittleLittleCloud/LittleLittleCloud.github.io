@@ -115,48 +115,6 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
 developing the core functionalities, like group chat. Plus the .Net Implementation of this framework.`,
       },
       {
-        name: "StepWise",
-        url: "https://github.com/LittleLittleCloud/StepWise",
-        description: `
-[StepWise](https://github.com/LittleLittleCloud/StepWise) is an Open-Source .NET framework which assists you to code, visualize and execute event-base workflow. It is designed to help you build complex workflows in a simple and efficient way. StepWise comes with the following key features:
-- **Code-First**: Define workflows using C# code in your project.
-- **WebUI** Visualize and execute workflows from your favorite browser using StepWise WebUI.
-- **Event-Driven**: Execute steps in parallel and resolve dependencies automatically.
-- **AI-Powered**: Work with Geeno, a built-in AI assistant in StepWise WebUI to help you run and analyze workflows with ease.
-
-To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main). You can also try the online demo below:
-[![StepWise preview](stepwise.jpg)](https://stepwisegallery20241128154731.azurewebsites.net/)
-`,
-      },
-      {
-        name: "LLM Canvas",
-        url: "https://github.com/LittleLittleCloud/llm-canvas",
-        description: `
-[llm-canvas](https://github.com/LittleLittleCloud/llm-canvas) allows you to programmatically create interactive, branching conversation trees. Build complex conversation structures, explore different response paths, and visualize tool calls in a beautiful web interface — all while maintaining complete privacy with local deployment.
-
-![llm-canvas preview](llmcanvas.jpg)
-`,
-      },
-      {
-        name: "Agent ChatRoom",
-        url: "https://github.com/LittleLittleCloud/Agent-ChatRoom",
-        description: "[Agent-ChatRoom](https://github.com/LittleLittleCloud/Agent-ChatRoom) is a multi-agent chat app that allows users to create and interact with autogen agents in a group chat.",
-      },
-      {
-        name: "ChatPUA",
-        url: "https://github.com/LittleLittleCloud/ChatPUA",
-        description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.jpg)](autopua.com)",
-      },
-      {
-        name: "GBI Dashboard",
-        url: "https://littlelittlecloud.github.io/GBI/",
-        description: `
-[GBI Dashboard](https://littlelittlecloud.github.io/GBI/) tracks Gold-Based Index (GBI) prices and provides a simple and efficient way to visualize the GBI price trends, which is designed to answer such a question: "How much gain does my investment actually make compared to gold?"
-
-[![GBI Dashboard preview](GBI.jpg)](https://littlelittlecloud.github.io/GBI/)
-`,
-      },
-      {
         name: "ML.NET",
         url: "https://github.com/dotnet/machinelearning",
         description: "[ML.NET](https://github.com/dotnet/machinelearning) is an open-source and cross-platform machine learning framework for .NET developers. I start contributing to this project since 2019, and my primary focus is on the \
