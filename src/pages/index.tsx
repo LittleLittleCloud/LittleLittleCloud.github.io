@@ -5,7 +5,6 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
-import Publications from "@/components/publications";
 import type { GetStaticProps } from "next";
 import { fetchStarCounts, type StarCounts } from "@/lib/github-stars";
 import { profile, profileRepos, type ContactKind } from "@/data/profile";
@@ -203,7 +202,6 @@ export default function Home({ stars }: HomeProps) {
         <About {...personalInformation} />
         <Experience {...personalInformation} />
         <ProjectSection {...personalInformation} />
-        <Publications />
         <EducationSection {...personalInformation} />
       </main>
 

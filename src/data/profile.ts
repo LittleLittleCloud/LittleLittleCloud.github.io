@@ -40,14 +40,6 @@ export type OssProject = {
   bullets: string[]; // (md) highlights
 };
 
-export type Publication = {
-  title: string;
-  url: string;
-  authors: string; // shortened author list
-  venue: string;
-  year: number;
-};
-
 export type Education = { school: string; degree: string; start: string; end: string };
 
 export type Profile = {
@@ -59,7 +51,6 @@ export type Profile = {
   contacts: Contact[];
   experience: Job[];
   ossProjects: OssProject[];
-  publications: Publication[];
   education: Education[];
   skills: { label: string; items: string[] }[];
 };
@@ -70,12 +61,12 @@ export const profile: Profile = {
   photo: "avatar.jpg",
   about: `I build AI agents and the developer tools they run on.
 
-I am a senior software engineer at Microsoft CoreAI, where I make [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) work well for AI coding agents: an MCP server and agent plugin that bring it into GitHub Copilot and OpenAI Codex, and faster startup for agents that work across many git worktrees. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen) and its paper, and built the AutoML v2 engine and GenAI model support in [ML.NET](https://github.com/dotnet/machinelearning).
+I am a senior software engineer at Microsoft CoreAI, where I make [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) work well for AI coding agents: an MCP server and agent plugin that bring it into GitHub Copilot and OpenAI Codex, and faster startup for agents that work across many git worktrees. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen) and built the AutoML v2 engine and GenAI model support in [ML.NET](https://github.com/dotnet/machinelearning).
 
 Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConsole), a React Ink–style TUI framework for .NET, and hang out with my cat.
 `,
   summary:
-    "Senior software engineer at Microsoft since 2018 (now CoreAI), building AI agents and the developer tools they run on. Currently making C# Dev Kit agent-ready for GitHub Copilot and OpenAI Codex. Co-authored AutoGen and its paper; built ML.NET's AutoML v2 engine and GenAI model support. Creator of RazorConsole.",
+    "Senior software engineer at Microsoft since 2018 (now CoreAI), building AI agents and the developer tools they run on. Currently making C# Dev Kit agent-ready for GitHub Copilot and OpenAI Codex. Co-authored AutoGen; built ML.NET's AutoML v2 engine and GenAI model support. Creator of RazorConsole.",
   contacts: [
     {
       kind: "email",
@@ -145,7 +136,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
           bullets: [
             "Pioneered AutoGen's multi-agent pattern, helping make it one of the most popular LLM-agent frameworks.",
             "Proposed and implemented the **GroupChat** pattern, a key feature driving AutoGen's adoption.",
-            "Maintained the core library in Python and .NET (`AutoGen.Core`: 250K+ NuGet downloads).",
+            "Maintained the core library across the Python and .NET implementations.",
           ],
         },
         {
@@ -156,7 +147,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
           period: "May 2019 – 2023",
           intro: "Microsoft's open-source, cross-platform machine learning framework for .NET.",
           bullets: [
-            "**AutoML**: Built [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML) (1.8M+ NuGet downloads); used by internal teams for online model updates.",
+            "**AutoML**: Built [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML); used by internal teams for online model updates.",
             "**GenAI**: Built `Microsoft.ML.GenAI`, running Phi-3, Llama 3, Mistral and Stable Diffusion natively in .NET on [TorchSharp](https://github.com/dotnet/TorchSharp).",
             "**Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.",
           ],
@@ -176,15 +167,6 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
         "**Built-in mouse & keyboard support**: Interactive elements handle mouse and keyboard input out of the box.",
         "**Built-in tools for agentic coding**: Ships tooling that helps AI coding agents build and iterate on RazorConsole apps.",
       ],
-    },
-  ],
-  publications: [
-    {
-      title: "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
-      url: "https://arxiv.org/abs/2308.08155",
-      authors: "Q. Wu, … **X. Zhang**, … C. Wang.",
-      venue: "arXiv:2308.08155",
-      year: 2023,
     },
   ],
   education: [

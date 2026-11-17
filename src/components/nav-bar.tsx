@@ -10,7 +10,6 @@ const navItems: NavItem[] = [
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Open Source", href: "#projects" },
-  { name: "Publications", href: "#publications" },
   { name: "Education", href: "#education" },
 ];
 

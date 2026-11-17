@@ -224,25 +224,6 @@ export default function ResumePage({ stars }: ResumeProps) {
           </div>
         </section>
 
-        {resume.publications.length > 0 && (
-          <section className="mb-5 break-inside-avoid print:mb-2.5">
-            <SectionTitle>Publications</SectionTitle>
-            <ul className="space-y-1">
-              {resume.publications.map((p) => (
-                <li key={p.url}>
-                  <span className="font-semibold text-neutral-900">
-                    <ExternalName name={p.title} href={p.url} />
-                  </span>
-                  <span className="text-neutral-600">
-                    {" "}
-                    — <Md>{p.authors}</Md> {p.venue}, {p.year}.
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
         <div className="grid gap-5 sm:grid-cols-2 print:grid-cols-2">
           <section className="break-inside-avoid">
             <SectionTitle>Education</SectionTitle>
