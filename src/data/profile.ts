@@ -58,7 +58,7 @@ export type Profile = {
 export const profile: Profile = {
   name: "XiaoYun Zhang",
   headline: "Senior Software Engineer · AI Agents, Machine Learning & .NET Developer Tools",
-  photo: "profile.jpg",
+  photo: "avatar.jpg",
   about: `I am a senior software engineer at Microsoft CoreAI. I am passionate about developing software, contributing to open-source projects, and cat.
 
 At Microsoft, I build developer tools and AI for .NET. Since 2024 I have worked on [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for VS Code, where I own the debugger, .NET Aspire integration and Hot Reload. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents, and was a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and led its Visual Studio tooling, ML.NET Model Builder.
