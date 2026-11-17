@@ -59,14 +59,14 @@ export const profile: Profile = {
   name: "XiaoYun Zhang",
   headline: "Senior Software Engineer · AI Agents, Machine Learning & .NET Developer Tools",
   photo: "profile.jpg",
-  about: `I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
+  about: `I am a senior software engineer at Microsoft CoreAI (formerly Developer Division). I am passionate about developing software, contributing to open-source projects, and cat.
 
 At Microsoft, I build developer tools and AI for .NET. Since 2024 I have worked on [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for VS Code, where I own the debugger, .NET Aspire integration and Hot Reload. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents, and was a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and led its Visual Studio tooling, ML.NET Model Builder.
 
 Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConsole), an open-source library for building terminal UIs with Razor components. I also enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
   summary:
-    "Senior software engineer in Microsoft Developer Division building .NET developer tools and AI since 2018. Own the debugger, .NET Aspire integration and Hot Reload in C# Dev Kit for VS Code. Previously co-authored AutoGen, one of the most popular multi-agent LLM frameworks, and was a core contributor to ML.NET, building its AutoML v2 engine and native GenAI model support. Creator of RazorConsole.",
+    "Senior software engineer at Microsoft CoreAI (formerly Developer Division), building AI and .NET developer tools since 2018. Own the debugger, .NET Aspire integration and Hot Reload in C# Dev Kit for VS Code. Previously co-authored AutoGen, one of the most popular multi-agent LLM frameworks, and was a core contributor to ML.NET, building its AutoML v2 engine and native GenAI model support. Creator of RazorConsole.",
   contacts: [
     {
       kind: "email",
@@ -107,7 +107,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
   experience: [
     {
       company: "Microsoft",
-      summary: "Developer Division: .NET developer tools for VS Code and Visual Studio, and AI / machine learning for .NET.",
+      summary: "CoreAI (formerly Developer Division): AI / machine learning for .NET, and .NET developer tools for VS Code and Visual Studio.",
       roles: [
         { title: "Senior Software Engineer", start: "Sep 2022", end: "Present" },
         { title: "Software Engineer II", start: "Sep 2020", end: "Sep 2022" },
