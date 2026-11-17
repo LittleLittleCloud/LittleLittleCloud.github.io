@@ -5,6 +5,7 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
+import Publications from "@/components/publications";
 import type { GetStaticProps } from "next";
 import { fetchStarCounts, type StarCounts } from "@/lib/github-stars";
 import { profile, profileRepos, type ContactKind } from "@/data/profile";
@@ -154,7 +155,7 @@ export default function Home({ stars }: HomeProps) {
   const personalInformation = withStars(getPersonalInformation(), stars);
   const pageTitle = `${personalInformation.name} - Senior Software Engineer at Microsoft`;
   const pageDescription =
-    "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, former ML.NET core contributor, and creator of RazorConsole.";
+    "XiaoYun Zhang is a senior software engineer at Microsoft CoreAI building AI agents and the developer tools they run on: C# Dev Kit for AI coding agents (MCP server for GitHub Copilot and OpenAI Codex), co-author of AutoGen, ML.NET AutoML, and creator of RazorConsole.";
 
   return (
     <div className={`min-h-screen bg-slate-50 font-sans text-slate-700 dark:bg-slate-950 dark:text-slate-300 ${geistSans.variable} ${geistMono.variable}`}>
@@ -202,6 +203,7 @@ export default function Home({ stars }: HomeProps) {
         <About {...personalInformation} />
         <Experience {...personalInformation} />
         <ProjectSection {...personalInformation} />
+        <Publications />
         <EducationSection {...personalInformation} />
       </main>
 

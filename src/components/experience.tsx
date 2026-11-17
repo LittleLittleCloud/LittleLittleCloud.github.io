@@ -79,7 +79,7 @@ const Job: React.FC<WorkExperience> = ({ company, roles, summary, highlights }) 
 );
 
 const Experience: React.FC<PersonalInformation> = ({ workExperience }) => (
-  <Section id="experience" title="Work Experience" subtitle="AI agents, machine learning and .NET developer tools">
+  <Section id="experience" title="Work Experience" subtitle="AI agents, machine learning and developer tools for AI coding">
     <div className="space-y-6">
       {workExperience.map((exp) => (
         <Job key={exp.company} {...exp} />
