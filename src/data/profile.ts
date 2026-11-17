@@ -17,7 +17,7 @@ export type Role = { title: string; start: string; end: string };
 export type Highlight = {
   name: string;
   url: string;
-  repo?: string; // "owner/name" on GitHub; shows a star badge
+  repo?: string; // "owner/name" on GitHub; shows a star badge (omit for closed source)
   role: string;
   period: string;
   intro: string; // one sentence about the project
@@ -31,11 +31,13 @@ export type Job = {
   highlights: Highlight[];
 };
 
-export type SideProject = {
+export type OssProject = {
   name: string;
   url: string;
   repo?: string;
-  description: string; // (md)
+  role: string;
+  description: string; // (md) one sentence
+  bullets: string[]; // (md) highlights
 };
 
 export type Education = { school: string; degree: string; start: string; end: string };
@@ -48,23 +50,23 @@ export type Profile = {
   summary: string; // resume Summary, 2-3 sentences
   contacts: Contact[];
   experience: Job[];
-  sideProjects: SideProject[];
+  ossProjects: OssProject[];
   education: Education[];
   skills: { label: string; items: string[] }[];
 };
 
 export const profile: Profile = {
   name: "XiaoYun Zhang",
-  headline: "Senior Software Engineer · AI Agents & Machine Learning for .NET",
+  headline: "Senior Software Engineer · .NET Developer Tools, AI Agents & Machine Learning",
   photo: "profile.jpg",
   about: `I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 
-At Microsoft, I focus on AI for .NET and Visual Studio. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
+At Microsoft, I build developer tools and AI for .NET. Since 2024 I have worked on [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) for VS Code, where I own the debugger, .NET Aspire integration and Hot Reload. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
 
-In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
+Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConsole), an open-source library for building terminal UIs with Razor components. I also enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
   summary:
-    "Senior software engineer in Microsoft Developer Division building AI and machine learning developer tools since 2018. Co-author of AutoGen, one of the most popular multi-agent LLM frameworks, and core contributor to ML.NET, where I built the AutoML v2 engine and native GenAI model support.",
+    "Senior software engineer in Microsoft Developer Division building .NET developer tools and AI since 2018. Own the debugger, .NET Aspire integration and Hot Reload in C# Dev Kit for VS Code; co-author of AutoGen, one of the most popular multi-agent LLM frameworks; core contributor to ML.NET, where I built the AutoML v2 engine and native GenAI model support. Creator of RazorConsole.",
   contacts: [
     {
       kind: "email",
@@ -105,13 +107,25 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
   experience: [
     {
       company: "Microsoft",
-      summary: "Developer Division: AI and machine learning for .NET and Visual Studio.",
+      summary: "Developer Division: .NET developer tools for VS Code and Visual Studio, and AI / machine learning for .NET.",
       roles: [
         { title: "Senior Software Engineer", start: "Sep 2022", end: "Present" },
         { title: "Software Engineer II", start: "Sep 2020", end: "Sep 2022" },
         { title: "Software Engineer", start: "Oct 2018", end: "Sep 2020" },
       ],
       highlights: [
+        {
+          name: "C# Dev Kit",
+          url: "https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit",
+          role: "Debugger, .NET Aspire & Hot Reload",
+          period: "2024 – Present",
+          intro: "Microsoft's official extension for C# and .NET development in VS Code.",
+          bullets: [
+            "**Debugger**: Responsible for the .NET debugging experience in C# Dev Kit.",
+            "**.NET Aspire**: Responsible for the .NET Aspire integration, so developers can run and debug Aspire apps from VS Code.",
+            "**Hot Reload**: Responsible for Hot Reload, applying code changes to a running app without restarting it.",
+          ],
+        },
         {
           name: "AutoGen",
           url: "https://github.com/microsoft/autogen",
@@ -142,13 +156,18 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
       ],
     },
   ],
-  sideProjects: [
+  ossProjects: [
     {
       name: "RazorConsole",
       url: "https://github.com/RazorConsole/RazorConsole",
       repo: "RazorConsole/RazorConsole",
-      description:
-        "Build rich, interactive terminal UIs with Razor components, bringing modern web UI patterns and styling to .NET console applications.",
+      role: "Creator & lead",
+      description: "Build rich, interactive terminal UIs in .NET with Razor components.",
+      bullets: [
+        "**Razor components for TUI**: Compose terminal interfaces with the same Razor component model used for web UI.",
+        "**Built-in mouse & keyboard support**: Interactive elements handle mouse and keyboard input out of the box.",
+        "**Built-in tools for agentic coding**: Ships tooling that helps AI coding agents build and iterate on RazorConsole apps.",
+      ],
     },
   ],
   education: [
@@ -162,7 +181,7 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
   skills: [
     { label: "Languages", items: ["C#", "Python", "TypeScript / JavaScript"] },
     { label: "AI / ML", items: ["LLM agents & multi-agent systems", "AutoML", "GenAI model integration"] },
-    { label: "Platforms", items: [".NET", "ML.NET", "TorchSharp", "Visual Studio extensibility"] },
+    { label: "Platforms", items: [".NET", ".NET Aspire", "ML.NET", "TorchSharp", "VS Code & Visual Studio extensibility"] },
   ],
 };
 
@@ -170,5 +189,5 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
 export const profileRepos = (): string[] =>
   [
     ...profile.experience.flatMap((j) => j.highlights.map((h) => h.repo)),
-    ...profile.sideProjects.map((p) => p.repo),
+    ...profile.ossProjects.map((p) => p.repo),
   ].filter((r): r is string => Boolean(r));

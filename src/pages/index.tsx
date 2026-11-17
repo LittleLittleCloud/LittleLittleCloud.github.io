@@ -26,6 +26,7 @@ export type ProjectMetadata = {
   url?: string;
   repo?: string; // "owner/name" on GitHub, enables the star badge
   stars?: number;
+  role?: string;
 };
 
 export type Education = {
@@ -102,11 +103,12 @@ export const getPersonalInformation = (): PersonalInformation => {
       twitter: contact("twitter", "X"),
       email: contact("email", "Email"),
     },
-    projects: profile.sideProjects.map((p) => ({
+    projects: profile.ossProjects.map((p) => ({
       name: p.name,
       url: p.url,
       repo: p.repo,
-      description: p.description,
+      role: p.role,
+      description: `${p.description}\n\n${p.bullets.map((b) => `- ${b}`).join("\n")}\n`,
     })),
     education: profile.education.map((e) => ({
       school: e.school,
@@ -152,7 +154,7 @@ export default function Home({ stars }: HomeProps) {
   const personalInformation = withStars(getPersonalInformation(), stars);
   const pageTitle = `${personalInformation.name} - Senior Software Engineer at Microsoft`;
   const pageDescription =
-    "XiaoYun Zhang is a senior software engineer at Microsoft working on AI for .NET: co-author of AutoGen, and contributor to ML.NET and ML.NET Model Builder.";
+    "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, core contributor to ML.NET, and creator of RazorConsole.";
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 ${geistSans.variable} ${geistMono.variable} font-sans`}>

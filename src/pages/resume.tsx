@@ -198,18 +198,30 @@ export default function ResumePage({ stars }: ResumeProps) {
         </section>
 
         <section className="mb-5 break-inside-avoid print:mb-3">
-          <SectionTitle>Side Projects</SectionTitle>
-          <ul className="space-y-1">
-            {resume.sideProjects.map((p) => (
-              <li key={p.name}>
-                <span className="font-semibold text-neutral-900">
-                  <ExternalName name={p.name} href={p.url} />
-                </span>
-                <Stars repo={p.repo} stars={stars} />
-                <span> — <Md>{p.description}</Md></span>
-              </li>
+          <SectionTitle>Open Source</SectionTitle>
+          <div className="space-y-3 print:space-y-2">
+            {resume.ossProjects.map((p) => (
+              <div key={p.name} className="break-inside-avoid">
+                <p>
+                  <span className="font-semibold text-neutral-900">
+                    <ExternalName name={p.name} href={p.url} />
+                  </span>
+                  <Stars repo={p.repo} stars={stars} />
+                  <span className="text-neutral-500"> · {p.role}</span>
+                </p>
+                <p className="italic text-neutral-600">
+                  <Md>{p.description}</Md>
+                </p>
+                <ul className="mt-1 list-disc space-y-0.5 pl-5 marker:text-neutral-400">
+                  {p.bullets.map((b) => (
+                    <li key={b}>
+                      <Md>{b}</Md>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
 
         <div className="grid gap-5 sm:grid-cols-2 print:grid-cols-2">
