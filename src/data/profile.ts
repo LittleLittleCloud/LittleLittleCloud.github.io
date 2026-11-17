@@ -181,7 +181,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
   skills: [
     { label: "Languages", items: ["C#", "Python", "TypeScript / JavaScript"] },
     { label: "AI / ML", items: ["LLM agents & multi-agent systems", "AutoML", "GenAI model integration"] },
-    { label: "Platforms", items: [".NET", ".NET Aspire", "ML.NET", "TorchSharp", "VS Code & Visual Studio extensibility"] },
+    { label: "Platforms", items: [".NET", "ML.NET", "TorchSharp", "Visual Studio extensibility"] },
   ],
 };
 
