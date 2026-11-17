@@ -15,5 +15,8 @@
   // workers.dev URL for production, plus per-version / per-PR preview URLs
   "workers_dev": true,
   "preview_urls": true,
+  // Required by `wrangler preview` (Workers Builds preview command). Previews inherit
+  // assets, compatibility settings and bindings from the top-level config.
+  "previews": {},
   "observability": { "enabled": true }
 }
