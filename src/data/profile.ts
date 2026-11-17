@@ -57,7 +57,7 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "XiaoYun Zhang",
-  headline: "Senior Software Engineer · .NET Developer Tools, AI Agents & Machine Learning",
+  headline: "Senior Software Engineer · AI Agents, Machine Learning & .NET Developer Tools",
   photo: "profile.jpg",
   about: `I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
 

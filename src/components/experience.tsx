@@ -83,7 +83,7 @@ const Experience: React.FC<PersonalInformation> = ({ workExperience }) => {
           Work Experience
         </h2>
         <p className="mx-auto max-w-3xl text-xl text-gray-600 dark:text-gray-400">
-          .NET developer tools, AI agents and machine learning
+          AI agents, machine learning and .NET developer tools
         </p>
       </div>
 
