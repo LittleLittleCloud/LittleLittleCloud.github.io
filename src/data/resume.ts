@@ -1,7 +1,9 @@
 // Single source of truth for the /resume page (and its PDF export via print).
 // Edit this file to update the resume; no layout changes needed.
 
-export type ResumeLink = { label: string; href: string };
+export type ResumeContactKind = "email" | "website" | "github" | "linkedin";
+
+export type ResumeLink = { kind: ResumeContactKind; label: string; href: string };
 
 export type ResumeRole = { title: string; start: string; end: string };
 
@@ -35,10 +37,10 @@ export const resume: Resume = {
   name: "XiaoYun Zhang",
   headline: "Senior Software Engineer · AI Agents & Machine Learning for .NET",
   contacts: [
-    { label: "xiaoyun@littlelittlecloud.com", href: "mailto:xiaoyun@littlelittlecloud.com" },
-    { label: "littlelittlecloud.com", href: "https://littlelittlecloud.com" },
-    { label: "github.com/LittleLittleCloud", href: "https://github.com/LittleLittleCloud" },
-    { label: "linkedin.com/in/xiaoyun-zhang-1b531013a", href: "https://www.linkedin.com/in/xiaoyun-zhang-1b531013a/" },
+    { kind: "email", label: "xiaoyun@littlelittlecloud.com", href: "mailto:xiaoyun@littlelittlecloud.com" },
+    { kind: "website", label: "littlelittlecloud.com", href: "https://littlelittlecloud.com" },
+    { kind: "github", label: "github.com/LittleLittleCloud", href: "https://github.com/LittleLittleCloud" },
+    { kind: "linkedin", label: "linkedin.com/in/xiaoyun-zhang-1b531013a", href: "https://www.linkedin.com/in/xiaoyun-zhang-1b531013a/" },
   ],
   summary:
     "Senior software engineer in Microsoft Developer Division building AI and machine learning developer tools since 2018. Co-author of AutoGen, one of the most popular multi-agent LLM frameworks, and core contributor to ML.NET, where I built the AutoML v2 engine and native GenAI model support.",
