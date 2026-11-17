@@ -76,6 +76,8 @@ const Navbar: React.FC<NavbarProps> = ({ name, resumeUrl }) => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isOpen}
                 className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}

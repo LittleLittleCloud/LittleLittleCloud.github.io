@@ -1,4 +1,3 @@
-import Image from "next/image";
 import localFont from "next/font/local";
 import Head from "next/head";
 import Navbar from "@/components/nav-bar";
@@ -6,8 +5,6 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -80,7 +77,7 @@ and [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearni
 
 In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
 `,
-    profile: "profile.png",
+    profile: "profile.jpg",
     resumeUrl: "resumeLatest.pdf",
     socials: {
       github: {
@@ -100,8 +97,8 @@ In my free time, I enjoy creating projects that are fun and/or useful, and play 
       },
       email: {
         label: "Email",
-        value: "xiaoyuz@microsoft.com",
-        href: "mailto:xiaoyuz@microsoft.com",
+        value: "xiaoyun@littlelittlecloud.com",
+        href: "mailto:xiaoyun@littlelittlecloud.com",
       },
     },
     projects: [
@@ -128,7 +125,7 @@ developing the core functionalities, like group chat. Plus the .Net Implementati
 - **AI-Powered**: Work with Geeno, a built-in AI assistant in StepWise WebUI to help you run and analyze workflows with ease.
 
 To learn more about StepWise, checkout the [project on Github](https://github.com/LittleLittleCloud/StepWise/tree/main). You can also try the online demo below:
-[![StepWise preview](stepwise.png)](https://stepwisegallery20241128154731.azurewebsites.net/)
+[![StepWise preview](stepwise.jpg)](https://stepwisegallery20241128154731.azurewebsites.net/)
 `,
       },
       {
@@ -137,7 +134,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
         description: `
 [llm-canvas](https://github.com/LittleLittleCloud/llm-canvas) allows you to programmatically create interactive, branching conversation trees. Build complex conversation structures, explore different response paths, and visualize tool calls in a beautiful web interface — all while maintaining complete privacy with local deployment.
 
-![llm-canvas preview](llmcanvas.png)
+![llm-canvas preview](llmcanvas.jpg)
 `,
       },
       {
@@ -148,7 +145,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
       {
         name: "ChatPUA",
         url: "https://github.com/LittleLittleCloud/ChatPUA",
-        description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.png)](autopua.com)",
+        description: "[ChatPUA](autopua.com) is a website to generate PUA message 24 by 7.[![AutoPUA preview](autopua.jpg)](autopua.com)",
       },
       {
         name: "GBI Dashboard",
@@ -156,7 +153,7 @@ To learn more about StepWise, checkout the [project on Github](https://github.co
         description: `
 [GBI Dashboard](https://littlelittlecloud.github.io/GBI/) tracks Gold-Based Index (GBI) prices and provides a simple and efficient way to visualize the GBI price trends, which is designed to answer such a question: "How much gain does my investment actually make compared to gold?"
 
-![GBI Dashboard preview](GBI.png)](https://littlelittlecloud.github.io/GBI/)
+[![GBI Dashboard preview](GBI.jpg)](https://littlelittlecloud.github.io/GBI/)
 `,
       },
       {
@@ -201,32 +198,53 @@ Plus Microsoft.ML.GenAI which implements a series of popular GenAI models, such 
   } as PersonalInformation;
 };
 
+const SITE_URL = "https://littlelittlecloud.com";
+
 export default function Home() {
   const personalInformation = getPersonalInformation();
-
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme, systemTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-    console.log("Home component mounted");
-  }, []);
-
-  useEffect(() => {
-    setTheme(systemTheme!);
-    console.log("Theme changed to system theme", systemTheme);
-  }, [systemTheme]);
-
-  if (!mounted) {
-    return null;
-  }
+  const pageTitle = `${personalInformation.name} - Senior Software Engineer at Microsoft`;
+  const pageDescription =
+    "XiaoYun Zhang is a senior software engineer at Microsoft working on AI for .NET: co-author of AutoGen, and contributor to ML.NET and ML.NET Model Builder.";
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 ${geistSans.variable} ${geistMono.variable} font-sans`}>
       <Head>
-        <title>{personalInformation.name} - {personalInformation.title}</title>
-        <meta name="description" content="Personal website for XiaoYun Zhang, showcasing portfolio and blog." />
-        <meta name="keywords" content="XiaoYun Zhang, portfolio, blog, web developer, software engineer" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={SITE_URL} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={`${SITE_URL}/${personalInformation.profile}`} />
+        <meta property="og:image:alt" content={personalInformation.name} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content={`@${personalInformation.socials.twitter.value}`} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={`${SITE_URL}/${personalInformation.profile}`} />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: personalInformation.name,
+              url: SITE_URL,
+              image: `${SITE_URL}/${personalInformation.profile}`,
+              jobTitle: "Senior Software Engineer",
+              worksFor: { "@type": "Organization", name: "Microsoft" },
+              alumniOf: personalInformation.education.map((e) => ({ "@type": "CollegeOrUniversity", name: e.school })),
+              sameAs: [
+                personalInformation.socials.github.href,
+                personalInformation.socials.linkedin.href,
+                personalInformation.socials.twitter.href,
+              ],
+            }),
+          }}
+        />
       </Head>
       
       {/* Background decoration */}
@@ -248,7 +266,7 @@ export default function Home() {
         <footer className="mt-16 border-t border-gray-200/20 backdrop-blur-sm bg-white/10 dark:bg-gray-900/10">
           <div className="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
             <p className="text-center text-gray-600 dark:text-gray-400">
-              {`© 2024 ${personalInformation.name}. All rights reserved.`}
+              {`© ${new Date().getFullYear()} ${personalInformation.name}. All rights reserved.`}
             </p>
           </div>
         </footer>
