@@ -2,8 +2,9 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 import { PersonalInformation, WorkExperience, WorkHighlight } from "@/pages";
 import { Markdown } from "./markdown";
+import { StarBadge } from "./star-badge";
 
-const Highlight: React.FC<WorkHighlight> = ({ name, url, role, period, description }) => (
+const Highlight: React.FC<WorkHighlight> = ({ name, url, repo, stars, role, period, description }) => (
   <div className="rounded-xl border border-gray-200/60 bg-white/50 p-4 dark:border-gray-700/40 dark:bg-gray-900/40 sm:p-6">
     <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
       <h4 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -19,6 +20,11 @@ const Highlight: React.FC<WorkHighlight> = ({ name, url, role, period, descripti
           </a>
         ) : (
           name
+        )}
+        {repo && stars !== undefined && (
+          <span className="ml-2">
+            <StarBadge repo={repo} stars={stars} />
+          </span>
         )}
         <span className="ml-2 text-base font-medium text-gray-500 dark:text-gray-400">· {role}</span>
       </h4>
@@ -77,7 +83,7 @@ const Experience: React.FC<PersonalInformation> = ({ workExperience }) => {
           Work Experience
         </h2>
         <p className="mx-auto max-w-3xl text-xl text-gray-600 dark:text-gray-400">
-          AI and machine learning for .NET developers
+          AI agents, machine learning and .NET developer tools
         </p>
       </div>
 

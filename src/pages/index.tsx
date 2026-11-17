@@ -5,6 +5,9 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import EducationSection from "@/components/education";
 import ProjectSection from "@/components/project";
+import type { GetStaticProps } from "next";
+import { fetchStarCounts, type StarCounts } from "@/lib/github-stars";
+import { profile, profileRepos, type ContactKind } from "@/data/profile";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,16 +24,16 @@ export type ProjectMetadata = {
   name: string;
   description: string;
   url?: string;
+  repo?: string; // "owner/name" on GitHub, enables the star badge
+  stars?: number;
+  role?: string;
 };
 
 export type Education = {
   school: string;
   degree: string;
-  major: string;
-  graduation: string;
   startDate: string;
   endDate: string;
-  description: string;
 };
 
 export type WorkRole = {
@@ -42,6 +45,8 @@ export type WorkRole = {
 export type WorkHighlight = {
   name: string;
   url?: string;
+  repo?: string; // "owner/name" on GitHub, enables the star badge
+  stars?: number;
   role: string;
   period: string;
   description: string; // markdown
@@ -79,106 +84,77 @@ export type PersonalInformation = {
   workExperience: WorkExperience[];
 };
 
-export const getPersonalInformation = () => {
+// Homepage view of the shared profile in src/data/profile.ts.
+export const getPersonalInformation = (): PersonalInformation => {
+  const contact = (kind: ContactKind, label: string): SocialInformationItem => {
+    const c = profile.contacts.find((x) => x.kind === kind)!;
+    return { label, value: c.handle, href: c.href };
+  };
+
   return {
-    name: "XiaoYun Zhang",
-    title: "Web Developer | Tech Enthusiast | Coffee Lover",
-    description:`I am a senior software engineer at Microsoft Developer Division. I am passionate about developing software, contributing to open-source projects, and cat.
-
-At Microsoft, I focus on AI for .NET and Visual Studio. I co-authored [AutoGen](https://github.com/microsoft/autogen), a multi-agent framework that makes it easy to build AI agents. I am also a core contributor to [ML.NET](https://github.com/dotnet/machinelearning), where I built the AutoML v2 engine and brought GenAI models such as Phi-3 and Llama 3 to .NET, and I led its Visual Studio tooling, ML.NET Model Builder.
-
-In my free time, I enjoy creating projects that are fun and/or useful, and play ~with~ my cat.
-`,
-    profile: "profile.jpg",
+    name: profile.name,
+    title: profile.headline,
+    description: profile.about,
+    profile: profile.photo,
     resumeUrl: "/resume",
     socials: {
-      github: {
-        label: "GitHub",
-        value: "LittleLittleCloud",
-        href: "https://github.com/LittleLittleCloud",
-      },
-      linkedin: {
-        label: "LinkedIn",
-        value: "XiaoYun Zhang",
-        href: "https://www.linkedin.com/in/xiaoyun-zhang-1b531013a/",
-      },
-      twitter: {
-        label: "Twitter",
-        value: "bigmiao6",
-        href: "https://x.com/bigmiao6",
-      },
-      email: {
-        label: "Email",
-        value: "xiaoyun@littlelittlecloud.com",
-        href: "mailto:xiaoyun@littlelittlecloud.com",
-      },
+      github: contact("github", "GitHub"),
+      linkedin: contact("linkedin", "LinkedIn"),
+      twitter: contact("twitter", "X"),
+      email: contact("email", "Email"),
     },
-    projects: [
-      {
-        name: "RazorConsole",
-        url: "https://github.com/RazorConsole/RazorConsole",
-        description: `[RazorConsole](https://github.com/RazorConsole/RazorConsole) bridges the gap between modern web UI development and console applications. It lets you create sophisticated terminal interfaces using Razor components, complete with interactive elements, rich styling, and familiar development patterns.`,
-      }
-    ],
-    education: [
-      {
-        school: "Xi'an Jiaotong University",
-        degree: "Bachelor of Science",
-        startDate: "September 2014",
-        endDate: "June 2018",
-        major: "Computer Science",
-        graduation: "June 2018",
-        description: "I graduated from Xi'an Jiaotong University with a Bachelor of Science in Computer Science.",      },
-    ],
-    workExperience: [
-      {
-        company: "Microsoft",
-        roles: [
-          { title: "Senior Software Engineer", startDate: "Sep 2022", endDate: "Present" },
-          { title: "Software Engineer II", startDate: "Sep 2020", endDate: "Sep 2022" },
-          { title: "Software Engineer", startDate: "Oct 2018", endDate: "Sep 2020" },
-        ],
-        summary: "Developer Division: AI and machine learning for .NET and Visual Studio.",
-        highlights: [
-          {
-            name: "AutoGen",
-            url: "https://github.com/microsoft/autogen",
-            role: "Co-author & core contributor",
-            period: "May 2023 – Present",
-            description: `
-[AutoGen](https://github.com/microsoft/autogen) is an open-source multi-agent framework for building agentic AI applications, created jointly by Microsoft and Penn State University.
-
-- Pioneered the multi-agent pattern in AutoGen, helping establish it as one of the most popular frameworks in the LLM-agent field.
-- Proposed and implemented the **GroupChat** pattern, a key feature driving AutoGen's adoption.
-- Maintained the core library across both the Python and .NET implementations.
-`,
-          },
-          {
-            name: "ML.NET",
-            url: "https://github.com/dotnet/machinelearning",
-            role: "Core contributor",
-            period: "May 2019 – Present",
-            description: `
-[ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source, cross-platform machine learning framework for .NET.
-
-- **AutoML**: Implemented [Microsoft.ML.AutoML](https://www.nuget.org/packages/Microsoft.ML.AutoML) v2 from scratch, inspired by [FLAML](https://github.com/microsoft/FLAML), delivering state-of-the-art performance on tabular data. Its extensible design is widely used by internal teams for online model updates.
-- **GenAI**: Built \`Microsoft.ML.GenAI\`, which implements popular models such as Phi-3, Llama 3 and Mistral (plus Stable Diffusion) on [TorchSharp](https://github.com/dotnet/TorchSharp), so .NET developers can run them natively.
-- **Tooling**: Led [ML.NET Model Builder](https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet/model-builder), the Visual Studio wizard that brings AutoML to .NET developers.
-`,
-          },
-        ],
-      },
-    ],
-  } as PersonalInformation;
+    projects: profile.ossProjects.map((p) => ({
+      name: p.name,
+      url: p.url,
+      repo: p.repo,
+      role: p.role,
+      description: `${p.description}\n\n${p.bullets.map((b) => `- ${b}`).join("\n")}\n`,
+    })),
+    education: profile.education.map((e) => ({
+      school: e.school,
+      degree: e.degree,
+      startDate: e.start,
+      endDate: e.end,
+    })),
+    workExperience: profile.experience.map((job) => ({
+      company: job.company,
+      summary: job.summary,
+      roles: job.roles.map((r) => ({ title: r.title, startDate: r.start, endDate: r.end })),
+      highlights: job.highlights.map((h) => ({
+        name: h.name,
+        url: h.url,
+        repo: h.repo,
+        role: h.role,
+        period: h.period,
+        description: `${h.intro}\n\n${h.bullets.map((b) => `- ${b}`).join("\n")}\n`,
+      })),
+    })),
+  };
 };
 
 const SITE_URL = "https://littlelittlecloud.com";
 
-export default function Home() {
-  const personalInformation = getPersonalInformation();
+const withStars = (info: PersonalInformation, stars: StarCounts): PersonalInformation => ({
+  ...info,
+  projects: info.projects.map((p) => (p.repo ? { ...p, stars: stars[p.repo] } : p)),
+  workExperience: info.workExperience.map((w) => ({
+    ...w,
+    highlights: w.highlights.map((h) => (h.repo ? { ...h, stars: stars[h.repo] } : h)),
+  })),
+});
+
+type HomeProps = { stars: StarCounts };
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const stars = await fetchStarCounts(profileRepos());
+  return { props: { stars } };
+};
+
+export default function Home({ stars }: HomeProps) {
+  const personalInformation = withStars(getPersonalInformation(), stars);
   const pageTitle = `${personalInformation.name} - Senior Software Engineer at Microsoft`;
   const pageDescription =
-    "XiaoYun Zhang is a senior software engineer at Microsoft working on AI for .NET: co-author of AutoGen, and contributor to ML.NET and ML.NET Model Builder.";
+    "XiaoYun Zhang is a senior software engineer at Microsoft building .NET developer tools and AI: C# Dev Kit (debugger, .NET Aspire, Hot Reload), co-author of AutoGen, former ML.NET core contributor, and creator of RazorConsole.";
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 ${geistSans.variable} ${geistMono.variable} font-sans`}>
