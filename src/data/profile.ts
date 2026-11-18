@@ -61,7 +61,7 @@ export const profile: Profile = {
   photo: "avatar.jpg",
   about: `I build AI agents and the developer tools they run on.
 
-I am a senior software engineer at Microsoft CoreAI, where I make [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) work well for AI coding agents. I shipped faster startup for agents that work across many git worktrees, and I am now building an MCP server and agent plugin to bring C# Dev Kit into GitHub Copilot and OpenAI Codex. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen) and built the AutoML v2 engine and GenAI model support in [ML.NET](https://github.com/dotnet/machinelearning).
+I am a senior software engineer at Microsoft CoreAI, where I make [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) work well for AI coding agents. I helped ship faster startup for agents that work across many git worktrees, and I am now building an MCP server and agent plugin to bring C# Dev Kit into agent harnesses. Before that, I co-authored [AutoGen](https://github.com/microsoft/autogen) and built the AutoML v2 engine and GenAI model support in [ML.NET](https://github.com/dotnet/machinelearning).
 
 Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConsole), a React Ink–style TUI framework for .NET, and hang out with my cat.
 `,
@@ -122,7 +122,7 @@ Outside of work I lead [RazorConsole](https://github.com/RazorConsole/RazorConso
           intro: "Microsoft's official extension for C# and .NET development in VS Code.",
           bullets: [
             "**C# Dev Kit for coding agents** (in development): Leading its integration into GitHub Copilot and OpenAI Codex (MCP server + agent plugin), so agents can use its build, diagnostics and format instead of `dotnet` CLI and reuse the loaded workspace.",
-            "**Language service cache**: Faster startup for coding agents across many git worktrees; shipped in recent releases.",
+            "**Language service cache**: Contributed to faster startup for coding agents across many git worktrees; shipped in recent releases.",
             "**Core experiences**: Own the .NET debugger, .NET Aspire integration and Hot Reload.",
           ],
         },
