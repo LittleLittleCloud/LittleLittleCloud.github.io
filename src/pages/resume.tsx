@@ -104,7 +104,7 @@ export default function ResumePage({ stars }: ResumeProps) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={resume.summary} />
         <meta property="og:url" content={`${SITE_URL}/resume`} />
-        <style>{`@page { size: letter; margin: 0.4in 0.5in; }`}</style>
+        <style>{`@page { size: letter; margin: 0.35in 0.5in; }`}</style>
       </Head>
 
       {/* Toolbar (screen only) */}
@@ -130,10 +130,10 @@ export default function ResumePage({ stars }: ResumeProps) {
 
       {/* Paper */}
       <main className="mx-auto my-6 max-w-[8.5in] bg-white px-6 py-8 text-[0.95rem] leading-snug text-neutral-800 shadow-xl sm:px-[0.6in] sm:py-[0.55in] print:my-0 print:max-w-none print:p-0 print:text-[9pt] print:leading-[1.3] print:shadow-none">
-        <header className="mb-5 print:mb-3">
+        <header className="mb-5 print:mb-2.5">
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 print:text-[22pt]">{resume.name}</h1>
           <p className="mt-1 text-base font-medium text-neutral-600 print:text-[11pt]">{resume.headline}</p>
-          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 print:text-[8.5pt]">
+          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 print:mt-1.5 print:gap-x-3 print:gap-y-0.5 print:text-[8.5pt]">
             {resume.contacts.filter((c) => c.onResume).map((c) => {
               const Icon = CONTACT_ICONS[c.kind];
               return (
@@ -148,12 +148,12 @@ export default function ResumePage({ stars }: ResumeProps) {
           </ul>
         </header>
 
-        <section className="mb-5 print:mb-3">
+        <section className="mb-5 print:mb-2.5">
           <SectionTitle>Summary</SectionTitle>
           <p>{resume.summary}</p>
         </section>
 
-        <section className="mb-5 print:mb-3">
+        <section className="mb-5 print:mb-2.5">
           <SectionTitle>Experience</SectionTitle>
           {resume.experience.map((job) => (
             <div key={job.company}>
@@ -197,7 +197,7 @@ export default function ResumePage({ stars }: ResumeProps) {
           ))}
         </section>
 
-        <section className="mb-5 break-inside-avoid print:mb-3">
+        <section className="mb-5 break-inside-avoid print:mb-2.5">
           <SectionTitle>Open Source</SectionTitle>
           <div className="space-y-3 print:space-y-2">
             {resume.ossProjects.map((p) => (
